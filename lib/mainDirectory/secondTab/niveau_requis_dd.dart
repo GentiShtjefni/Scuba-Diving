@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/tools/ExpandedListAnimationWidget.dart';
+import 'package:project/mainDirectory/tools/ExpandedNiveau2.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
 class NiveauRequisDropDown extends StatefulWidget {
@@ -9,11 +9,11 @@ class NiveauRequisDropDown extends StatefulWidget {
 
 class _NiveauRequisDropDownState extends State<NiveauRequisDropDown> {
   bool isStrechedDropDown = false;
-  int groupValue;
+  int groupValueNiveau;
 
-  void handleGroupValue(int value) {
+  void handleGroupValue(int value3) {
     setState(() {
-      groupValue = value;
+      groupValueNiveau = value3;
     });
   }
 
@@ -112,21 +112,21 @@ class _NiveauRequisDropDownState extends State<NiveauRequisDropDown> {
                               ],
                             ),
                           ),
-                          ExpandedSection(
+                          ExpandedSectionNiveau2(
                             expand: isStrechedDropDown,
                             height: 100,
                             child: Container(
+                              margin: EdgeInsets.symmetric(horizontal:5.0),
                               color: Colors.white70,
-                              child: ListView(
-                                padding: EdgeInsets.all(0),
-                                shrinkWrap: true,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   //controller: scrollController2,
                                   Row(
                                     children: [
                                       Radio(
                                           value: 0,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueNiveau,
                                           onChanged: handleGroupValue),
                                       new Text('débutant', style: _textStyle()),
                                     ],
@@ -135,7 +135,7 @@ class _NiveauRequisDropDownState extends State<NiveauRequisDropDown> {
                                     children: [
                                       Radio(
                                           value: 1,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueNiveau,
                                           onChanged: handleGroupValue),
                                       new Text('open water (niveau 1)',
                                           style: _textStyle()),
@@ -145,7 +145,7 @@ class _NiveauRequisDropDownState extends State<NiveauRequisDropDown> {
                                     children: [
                                       Radio(
                                           value: 2,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueNiveau,
                                           onChanged: handleGroupValue),
                                       new Text('avancé (niveau 2)',
                                           style: _textStyle()),
@@ -155,7 +155,7 @@ class _NiveauRequisDropDownState extends State<NiveauRequisDropDown> {
                                     children: [
                                       Radio(
                                           value: 3,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueNiveau,
                                           onChanged: handleGroupValue),
                                       new Text('plus', style: _textStyle()),
                                     ],

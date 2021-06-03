@@ -116,10 +116,10 @@ class _AutonomieDropDownThirdState extends State<AutonomieDropDownThird> {
                             expand: isStrechedDropDown,
                             height: 100,
                             child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 5),
                               color: Colors.white70,
-                              child: ListView(
-                                padding: EdgeInsets.all(0),
-                                shrinkWrap: true,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   //controller: scrollController2,
                                   Row(

@@ -64,7 +64,7 @@ class _ExpandedSectionState extends State<ExpandedSection>
               //minHeight: 100,
               minWidth: double.infinity,
               maxHeight: widget.height > 5
-                  ? 250
+                  ? 283
                   : widget.height == 1
                       ? 55
                       : widget.height * 50.0),

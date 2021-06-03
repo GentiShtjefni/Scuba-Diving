@@ -37,6 +37,15 @@ dependencies:
   cloud_functions: ^1.0.7
   firebase_storage: ^8.0.6
   firebase_auth: ^1.1.4
+  custom_navigator: ^0.3.0
+  http: ^0.13.3
+  intl: ^0.17.0
+  weather: ^2.0.1
+  shared_preferences: ^2.0.6
+  cubit: ^0.1.2
+  bloc: ^7.0.0
+  flutter_bloc: ^7.0.1
+  material_floating_search_bar: ^0.3.4
 
 
 #  google_maps_flutter: ^2.0.3
@@ -78,6 +87,12 @@ flutter:
     - images/nom_de_cite.png
     - images/peshqittt.png
     - images/penaa.png
+    - images/questions.png
+    - images/nom_de_centre.png
+    - images/meteo_icon.png
+    - images/mes_favorites.png
+    - images/enregisterbg.png
+    - images/settings.png
     - images/icons/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -69,44 +69,6 @@ class SliderClassState extends State {
                 if (i == _currentPage) SlideDots(true) else SlideDots(false)
             ],
           )
-
-          // Expanded(
-          //     child: Stack(
-          //       alignment: AlignmentDirectional.bottomCenter,
-          //       children: [
-          //         PageView.builder(
-          //           scrollDirection: Axis.horizontal,
-          //           onPageChanged: _onPageChanged,
-          //           controller: _pageController,
-          //           itemCount: slideList.length,
-          //           itemBuilder: (ctx, i) => SlideItem(i),
-          //         ),
-          //         Stack(
-          //           alignment: AlignmentDirectional.topStart,
-          //           children: [
-          //             // new Padding(padding: const EdgeInsets.symmetric(vertical: 20.0)),
-          //             Container(
-          //               margin: const EdgeInsets.only(bottom: 35),
-          //               child: Row(
-          //                 mainAxisSize: MainAxisSize.max,
-          //                 mainAxisAlignment: MainAxisAlignment.center,
-          //                 children: [
-          //                   SizedBox(
-          //                     height: 10,
-          //                   ),
-          //                   for(int i = 0; i<slideList.length; i++)
-          //                     if( i == _currentPage )
-          //                       SlideDots(true)
-          //                     else
-          //                       SlideDots(false)
-          //                 ],
-          //               )
-          //             )
-          //           ],
-          //         )
-          //       ],
-          //     ),
-          // ),
         ],
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/tools/ExpandedListAnimationWidget.dart';
-import 'package:project/mainDirectory/tools/ExtandedListAnimationOneRow.dart';
+import 'package:project/mainDirectory/tools/ExpandedVm.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
 class VieMarineDropDownThird extends StatefulWidget {
@@ -10,101 +9,27 @@ class VieMarineDropDownThird extends StatefulWidget {
 
 class _VieMarineDropDownThirdState extends State<VieMarineDropDownThird> {
   bool isStrechedVieMarine = false;
-  bool isStrechedRequin = false;
-  bool isStrechedMammifere = false;
-  bool isStrechedNReptile = false;
-  bool isStrechedCrustace = false;
-  bool isStrechedRaie = false;
-  bool isStrechedLimace = false;
-  bool isStrechedCephlalopode = false;
-  bool isStrechedCorail = false;
-  bool isStrechedPelagique = false;
-  bool isStrechedDerecif = false;
-  bool isStrechedDefond = false;
-  int groupValue0;
-  int groupValue1;
-  int groupValue2;
-  int groupValue3;
-  int groupValue4;
-  int groupValue5;
-  int groupValue6;
-  int groupValue7;
-  int groupValue8;
-  int groupValue9;
-  int groupValue10;
-  int groupValue11;
+  String ddVMThird1 = 'select';
+  String ddVMThird2 = 'select';
+  String ddVMThird3 = 'select';
+  String ddVMThird4 = 'select';
+  String ddVMThird5 = 'select';
+  String ddVMThird6 = 'select';
+  String ddVMThird7 = 'select';
+  String ddVMThird8 = 'select';
+  String ddVMThird9 = 'select';
+  String ddVMThird10 = 'select';
+  String ddVMThird11 = 'select';
+  String ddVMThird12 = 'select';
+
+  int groupValueVM3;
 
   void handleGroupValue0(int value) {
     setState(() {
-      groupValue0 = value;
+      groupValueVM3 = value;
     });
   }
 
-  void handleGroupValue1(int value) {
-    setState(() {
-      groupValue1 = value;
-    });
-  }
-
-  void handleGroupValue2(int value) {
-    setState(() {
-      groupValue2 = value;
-    });
-  }
-
-  void handleGroupValue3(int value) {
-    setState(() {
-      groupValue3 = value;
-    });
-  }
-
-  void handleGroupValue4(int value) {
-    setState(() {
-      groupValue4 = value;
-    });
-  }
-
-  void handleGroupValue5(int value) {
-    setState(() {
-      groupValue5 = value;
-    });
-  }
-
-  void handleGroupValue6(int value) {
-    setState(() {
-      groupValue6 = value;
-    });
-  }
-
-  void handleGroupValue7(int value) {
-    setState(() {
-      groupValue7 = value;
-    });
-  }
-
-  void handleGroupValue8(int value) {
-    setState(() {
-      groupValue8 = value;
-    });
-  }
-
-  void handleGroupValue9(int value) {
-    setState(() {
-      groupValue9 = value;
-    });
-  }
-
-  void handleGroupValue10(int value) {
-    setState(() {
-      groupValue10 = value;
-    });
-  }
-
-  void handleGroupValue11(int value) {
-    setState(() {
-      groupValue11 = value;
-    });
-  }
 
   TextStyle _textStyle() {
     return new TextStyle(
@@ -202,613 +127,540 @@ class _VieMarineDropDownThirdState extends State<VieMarineDropDownThird> {
                               ],
                             ),
                           ),
-                          ExpandedSection(
+                          ExpandedSectionVM(
                               expand: isStrechedVieMarine,
                               height: 300,
                               child: Container(
+                                margin: EdgeInsets.symmetric(horizontal: 5.0),
                                 color: Colors.white70,
-                                child: ListView(
-                                  padding: EdgeInsets.all(0),
-                                  shrinkWrap: true,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
                                   // controller: _scrollController,
                                   children: [
                                     //controller: scrollController2,
-                                    ListTile(
-                                      leading: new Radio(
-                                        value: 0,
-                                        groupValue: groupValue0,
-                                        onChanged: handleGroupValue0,
-                                      ),
-                                      trailing: Icon(isStrechedRequin
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title:
-                                          Text('Requin', style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedRequin = !isStrechedRequin;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                      expand: isStrechedRequin,
-                                      height: 50,
-                                      child: ListView(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text('first',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text('second',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 3,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text('3',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    ListTile(
-                                      leading: new Radio(
-                                          value: 1,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedMammifere
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('Mammifere',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedMammifere =
-                                              !isStrechedMammifere;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                      expand: isStrechedMammifere,
-                                      height: 50,
-                                      child: ListView(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text('one',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text('two',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text('three',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    ListTile(
-                                      leading: new Radio(
-                                          value: 2,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedNReptile
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('reptile & anguille',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedNReptile =
-                                              !isStrechedNReptile;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                      expand: isStrechedNReptile,
-                                      height: 50,
-                                      child: ListView(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text('1',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text('2',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text('3',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    ListTile(
-                                      leading: new Radio(
-                                          value: 3,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedCrustace
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title:
-                                          Text('crustacé', style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedCrustace =
-                                              !isStrechedCrustace;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                      expand: isStrechedCrustace,
-                                      height: 50,
-                                      child: ListView(children: [
-                                        Row(
-                                          children: [
-                                            new Radio(
-                                              value: 0,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text('1', style: _textStyle()),
-                                            Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 2.0)),
-                                            new Radio(
-                                              value: 1,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text('sd', style: _textStyle()),
-                                            Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 2.0)),
-                                            new Radio(
-                                              value: 2,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text('weq',
-                                                style: _textStyle()),
-                                          ],
+                                    new Row(
+                                      children: [
+                                        new Radio(
+                                          value: 0,
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
                                         ),
-                                      ]),
+                                        new Expanded(
+                                          child: Text('Requin',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird1,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird1 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              'one',
+                                              'two',
+                                              'three'
+
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    ListTile(
-                                      leading: new Radio(
+                                    new Row(
+                                      children: [
+                                        new Radio(
+                                          value: 1,
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('mammifère',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird2,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird2 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: [
+                                        new Radio(
+                                          value: 2,
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('reptile & anguille',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird3,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird3 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: [
+                                        new Radio(
+                                          value: 3,
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('crustacé',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird4,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird4 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 4,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedRaie
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('raie', style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedRaie = !isStrechedRaie;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                        expand: isStrechedRaie,
-                                        height: 50,
-                                        child: ListView(children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue5,
-                                                onChanged: handleGroupValue5,
-                                              ),
-                                              new Text('asd',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue5,
-                                                onChanged: handleGroupValue5,
-                                              ),
-                                              new Text('asdasd',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue5,
-                                                onChanged: handleGroupValue5,
-                                              ),
-                                              new Text('auter',
-                                                  style: _textStyle())
-                                            ],
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('raie',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird5,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird5 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
                                           ),
-                                        ])),
-                                    ListTile(
-                                      leading: new Radio(
+                                        ),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 5,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedLimace
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('limace & gastropode',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedLimace = !isStrechedLimace;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                        expand: isStrechedLimace,
-                                        height: 50,
-                                        child: ListView(children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue6,
-                                                onChanged: handleGroupValue6,
-                                              ),
-                                              new Text('1',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue6,
-                                                onChanged: handleGroupValue6,
-                                              ),
-                                              new Text('2',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue6,
-                                                onChanged: handleGroupValue6,
-                                              ),
-                                              new Text('Afrique du Sud',
-                                                  style: _textStyle()),
-                                            ],
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('limace & gastropode',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird6,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird6 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
                                           ),
-                                        ])),
-                                    ListTile(
-                                      leading: new Radio(
+                                        ),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 6,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedCephlalopode
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('céphalopode & concombre',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedCephlalopode =
-                                              !isStrechedCephlalopode;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                        expand: isStrechedCephlalopode,
-                                        height: 50,
-                                        child: ListView(children: [
-                                          Row(
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue7,
-                                                onChanged: handleGroupValue7,
-                                              ),
-                                              new Text('1',
+                                              Text('céphalopode',
                                                   style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue7,
-                                                onChanged: handleGroupValue7,
-                                              ),
-                                              new Text('2',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue7,
-                                                onChanged: handleGroupValue7,
-                                              ),
-                                              new Text('Afrique du Sud',
+                                              Text('& concombre',
                                                   style: _textStyle()),
                                             ],
                                           ),
-                                        ])),
-                                    ListTile(
-                                      leading: new Radio(
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird7,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird7 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 7,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedCorail
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text(
-                                          'corail/bivalve/oursin/étoile de me',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedCorail = !isStrechedCorail;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                        expand: isStrechedCorail,
-                                        height: 50,
-                                        child: ListView(children: [
-                                          Row(
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+
                                             children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue8,
-                                                onChanged: handleGroupValue8,
-                                              ),
-                                              new Text('1',
+                                              Text('corail/bivalve/',
                                                   style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue8,
-                                                onChanged: handleGroupValue8,
-                                              ),
-                                              new Text('2',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue8,
-                                                onChanged: handleGroupValue8,
-                                              ),
-                                              new Text('Afrique du Sud',
+                                              Text('oursin/étoile de mer  ',
                                                   style: _textStyle()),
                                             ],
                                           ),
-                                        ])),
-                                    ListTile(
-                                      leading: new Radio(
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird8,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird8 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 8,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedPelagique
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('poisson pélagique',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedPelagique =
-                                              !isStrechedPelagique;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                        expand: isStrechedPelagique,
-                                        height: 50,
-                                        child: ListView(children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue9,
-                                                onChanged: handleGroupValue9,
-                                              ),
-                                              new Text('1',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue9,
-                                                onChanged: handleGroupValue9,
-                                              ),
-                                              new Text('2',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue9,
-                                                onChanged: handleGroupValue9,
-                                              ),
-                                              new Text('Afrique du Sud',
-                                                  style: _textStyle()),
-                                            ],
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('poisson pélagique',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird9,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird9 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
                                           ),
-                                        ])),
-                                    ListTile(
-                                      leading: new Radio(
+                                        ),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 9,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedDerecif
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('poisson de récif',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedDerecif =
-                                              !isStrechedDerecif;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                        expand: isStrechedDerecif,
-                                        height: 50,
-                                        child: ListView(children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue10,
-                                                onChanged: handleGroupValue10,
-                                              ),
-                                              new Text('1',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue10,
-                                                onChanged: handleGroupValue10,
-                                              ),
-                                              new Text('2',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue10,
-                                                onChanged: handleGroupValue10,
-                                              ),
-                                              new Text('hey',
-                                                  style: _textStyle()),
-                                            ],
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('poisson de récif',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird10,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird10 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
                                           ),
-                                        ])),
-                                    ListTile(
-                                      leading: new Radio(
+                                        ),
+                                      ],
+                                    ),
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 10,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedDefond
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('poisson de fond',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedDefond = !isStrechedDefond;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionOneRow(
-                                        expand: isStrechedDefond,
-                                        height: 50,
-                                        child: ListView(children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue11,
-                                                onChanged: handleGroupValue11,
-                                              ),
-                                              new Text('1',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue11,
-                                                onChanged: handleGroupValue11,
-                                              ),
-                                              new Text('2',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue11,
-                                                onChanged: handleGroupValue11,
-                                              ),
-                                              new Text('Afrique du Sud',
-                                                  style: _textStyle()),
-                                            ],
+                                          groupValue: groupValueVM3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('poisson de fond',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddVMThird11,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddVMThird11 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              '1',
+                                              '2',
+                                              '3'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
                                           ),
-                                        ])),
-                                    ListTile(
-                                      leading: new Radio(
-                                          value: 11,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: new TextField(),
-                                      title:
-                                          Text('autres:', style: _textStyle()),
-                                    )
+                                        ),
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ))

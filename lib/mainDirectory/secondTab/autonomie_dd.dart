@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/tools/ExpandedListAnimationWidget.dart';
+import 'package:project/mainDirectory/tools/ExpandedAutonomie2.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
 class AutonomieDropDown extends StatefulWidget {
@@ -9,11 +9,11 @@ class AutonomieDropDown extends StatefulWidget {
 
 class _AutonomieDropDownState extends State<AutonomieDropDown> {
   bool isStrechedDropDown = false;
-  int groupValue;
+  int groupValueAutonomie;
 
-  void handleGroupValue(int value) {
+  void handleGroupValue(int value2) {
     setState(() {
-      groupValue = value;
+      groupValueAutonomie = value2;
     });
   }
 
@@ -112,21 +112,21 @@ class _AutonomieDropDownState extends State<AutonomieDropDown> {
                               ],
                             ),
                           ),
-                          ExpandedSection(
+                          ExpandedSectionAutonomie2(
                             expand: isStrechedDropDown,
                             height: 100,
                             child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
                               color: Colors.white70,
-                              child: ListView(
-                                padding: EdgeInsets.all(0),
-                                shrinkWrap: true,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   //controller: scrollController2,
                                   Row(
                                     children: [
                                       Radio(
                                           value: 0,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueAutonomie,
                                           onChanged: handleGroupValue),
                                       new Text('seul', style: _textStyle()),
                                     ],
@@ -135,7 +135,7 @@ class _AutonomieDropDownState extends State<AutonomieDropDown> {
                                     children: [
                                       Radio(
                                           value: 1,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueAutonomie,
                                           onChanged: handleGroupValue),
                                       new Text('guidée', style: _textStyle()),
                                     ],

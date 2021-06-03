@@ -1,5 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/tools/ExpandedListAnimationWidget.dart';
+import 'package:project/mainDirectory/tools/ExpandedTypes2.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
 class TypesDropDown extends StatefulWidget {
@@ -9,11 +10,11 @@ class TypesDropDown extends StatefulWidget {
 
 class _TypesDropDownState extends State<TypesDropDown> {
   bool isStrechedDropDown = false;
-  int groupValue;
+  int groupValueTypes;
 
-  void handleGroupValue(int value) {
+  void handleGroupValue(int value7) {
     setState(() {
-      groupValue = value;
+      groupValueTypes = value7;
     });
   }
 
@@ -112,21 +113,21 @@ class _TypesDropDownState extends State<TypesDropDown> {
                               ],
                             ),
                           ),
-                          ExpandedSection(
+                          ExpandedSectionTypes2(
                             expand: isStrechedDropDown,
                             height: 100,
                             child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
                               color: Colors.white70,
-                              child: ListView(
-                                padding: EdgeInsets.all(0),
-                                shrinkWrap: true,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   //controller: scrollController2,
                                   Row(
                                     children: [
                                       Radio(
                                           value: 0,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTypes,
                                           onChanged: handleGroupValue),
                                       new Text('nuit', style: _textStyle()),
                                     ],
@@ -135,7 +136,7 @@ class _TypesDropDownState extends State<TypesDropDown> {
                                     children: [
                                       Radio(
                                           value: 1,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTypes,
                                           onChanged: handleGroupValue),
                                       new Text('profondeur min 30 min',
                                           style: _textStyle()),
@@ -145,7 +146,7 @@ class _TypesDropDownState extends State<TypesDropDown> {
                                     children: [
                                       Radio(
                                           value: 2,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTypes,
                                           onChanged: handleGroupValue),
                                       new Text('nitrox', style: _textStyle()),
                                     ],
@@ -154,7 +155,7 @@ class _TypesDropDownState extends State<TypesDropDown> {
                                     children: [
                                       Radio(
                                           value: 3,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTypes,
                                           onChanged: handleGroupValue),
                                       new Text('en bateau',
                                           style: _textStyle()),
@@ -164,7 +165,7 @@ class _TypesDropDownState extends State<TypesDropDown> {
                                     children: [
                                       Radio(
                                           value: 4,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTypes,
                                           onChanged: handleGroupValue),
                                       new Text('du bord', style: _textStyle()),
                                     ],
@@ -173,7 +174,7 @@ class _TypesDropDownState extends State<TypesDropDown> {
                                     children: [
                                       Radio(
                                           value: 5,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTypes,
                                           onChanged: handleGroupValue),
                                       new Text('sous glace',
                                           style: _textStyle()),
@@ -183,7 +184,7 @@ class _TypesDropDownState extends State<TypesDropDown> {
                                     children: [
                                       Radio(
                                           value: 6,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTypes,
                                           onChanged: handleGroupValue),
                                       new Text('eau douce',
                                           style: _textStyle()),
@@ -193,7 +194,7 @@ class _TypesDropDownState extends State<TypesDropDown> {
                                     children: [
                                       Radio(
                                           value: 7,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTypes,
                                           onChanged: handleGroupValue),
                                       new Text('autres:', style: _textStyle()),
                                       Expanded(child: new TextField()),

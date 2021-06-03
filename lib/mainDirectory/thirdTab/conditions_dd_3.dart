@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/tools/ExpandedListAnimationFourRows.dart';
 import 'package:project/mainDirectory/tools/ExpandedListAnimationWidget.dart';
-import 'package:project/mainDirectory/tools/ExpandedListThreeRows.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
 class ConditionsDropDownThird extends StatefulWidget {
@@ -11,35 +9,16 @@ class ConditionsDropDownThird extends StatefulWidget {
 
 class _ConditionsDropDownThirdState extends State<ConditionsDropDownThird> {
   bool isStrechedConditions = false;
-  bool isStrechedTemp = false;
-  bool isStrechedCourant = false;
-  bool isStrechedVisibilite = false;
+  String ddConditions1 = 'select';
+  String ddConditions2 = 'select';
+  String ddConditions3 = 'select';
+
   int groupValue0;
-  int groupValue1;
-  int groupValue2;
-  int groupValue3;
+
 
   void handleGroupValue0(int value) {
     setState(() {
       groupValue0 = value;
-    });
-  }
-
-  void handleGroupValue1(int value) {
-    setState(() {
-      groupValue1 = value;
-    });
-  }
-
-  void handleGroupValue2(int value) {
-    setState(() {
-      groupValue2 = value;
-    });
-  }
-
-  void handleGroupValue3(int value) {
-    setState(() {
-      groupValue3 = value;
     });
   }
 
@@ -143,207 +122,159 @@ class _ConditionsDropDownThirdState extends State<ConditionsDropDownThird> {
                               expand: isStrechedConditions,
                               height: 150,
                               child: Container(
+                                margin: EdgeInsets.symmetric(horizontal: 5),
                                 color: Colors.white70,
-                                child: ListView(
-                                  padding: EdgeInsets.all(0),
-                                  shrinkWrap: true,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
                                   // controller: _scrollController,
                                   children: [
                                     //controller: scrollController2,
-                                    ListTile(
-                                      leading: new Radio(
-                                        value: 0,
-                                        groupValue: groupValue0,
-                                        onChanged: handleGroupValue0,
-                                      ),
-                                      trailing: Icon(isStrechedTemp
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('température eau',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedTemp = !isStrechedTemp;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionThreeRows(
-                                      expand: isStrechedTemp,
-                                      height: 150,
-                                      child: ListView(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text('entre 0oC et 10oC',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text('entre 11oC et 20oC',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text('21oC et plus',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    ListTile(
-                                      leading: new Radio(
-                                          value: 1,
+                                    new Row(
+                                      children: [
+                                        new Radio(
+                                          value: 0,
                                           groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedCourant
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title:
-                                          Text('courant', style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedCourant =
-                                              !isStrechedCourant;
-                                        });
-                                      },
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('température  eau',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: DropdownButton(
+
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddConditions1,
+                                            icon: Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddConditions1 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              'entre 0' +  '\u2103' + ' et 10' + '\u2103',
+                                              'entre 11' +  '\u2103' + ' et 20' + '\u2103',
+                                              '21' +  '\u2103' + ' et plus',
+
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(value,
+                                                      overflow: TextOverflow.ellipsis,
+                                                      maxLines: 2,),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    ExpandedSectionFourRows(
-                                      expand: isStrechedCourant,
-                                      height: 200,
-                                      child: ListView(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
+                                    new Row(
+                                      children: [
+                                        new Radio(
+                                            value: 1,
+                                            groupValue: groupValue0,
+                                            onChanged: handleGroupValue0),
+                                        new Expanded(
+                                          child: Text('courant',
+                                            style: _textStyle(),),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: ButtonTheme(
+                                            alignedDropdown: true,
+                                            child: DropdownButton(
+
+                                              dropdownColor: Colors.grey.shade300,
+                                              value: ddConditions2,
+                                              icon: Icon(Icons.keyboard_arrow_down),
+                                              elevation: 10,
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.black,
                                               ),
-                                              new Text('inexistan',
-                                                  style: _textStyle()),
-                                            ],
+                                              onChanged: (String newValue) {
+                                                setState(() {
+                                                  ddConditions2 = newValue;
+                                                });
+                                              },
+                                              items: [
+                                                'select',
+                                                'inexistan',
+                                                'faible',
+                                                'modéré',
+                                                'fort'
+                                              ].map<DropdownMenuItem<String>>(
+                                                      (String value) {
+                                                    return DropdownMenuItem<String>(
+                                                      value: value,
+                                                      child: Text(value,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        maxLines: 2,),
+                                                    );
+                                                  }).toList(),
+                                            ),
                                           ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text('faible',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text('modéré',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                  value: 3,
-                                                  groupValue: groupValue2,
-                                                  onChanged: handleGroupValue2),
-                                              new Text('fort',
-                                                  style: _textStyle())
-                                            ],
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                    ListTile(
-                                      leading: new Radio(
-                                          value: 2,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedVisibilite
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text('visibilité',
-                                          style: _textStyle()),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedVisibilite =
-                                              !isStrechedVisibilite;
-                                        });
-                                      },
+                                    new Row(
+                                      children: [
+                                        new Radio(
+                                            value: 2,
+                                            groupValue: groupValue0,
+                                            onChanged: handleGroupValue0),
+                                        new Expanded(
+                                          child: Text('visibilité',
+                                            style: _textStyle(),),
+                                        ),
+                                        new Padding(
+                                          padding: const EdgeInsets.only(right:5.0),
+                                          child: ButtonTheme(
+                                            alignedDropdown: true,
+                                            child: DropdownButton(
+
+                                              dropdownColor: Colors.grey.shade300,
+                                              value: ddConditions3,
+                                              icon: Icon(Icons.keyboard_arrow_down),
+                                              elevation: 10,
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                              ),
+                                              onChanged: (String newValue) {
+                                                setState(() {
+                                                  ddConditions3 = newValue;
+                                                });
+                                              },
+                                              items: [
+                                                'select',
+                                                '0 à 10m',
+                                                '10m à 20m',
+                                                '20m et +',
+                                                'diculté autre'
+                                              ].map<DropdownMenuItem<String>>(
+                                                      (String value) {
+                                                    return DropdownMenuItem<String>(
+                                                      value: value,
+                                                      child: Text(value,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        maxLines: 2,),
+                                                    );
+                                                  }).toList(),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    ExpandedSectionFourRows(
-                                      expand: isStrechedVisibilite,
-                                      height: 200,
-                                      child: ListView(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text('0 à 10m',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text('10m à 20m',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text('20m et +',
-                                                  style: _textStyle()),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                  value: 3,
-                                                  groupValue: groupValue3,
-                                                  onChanged: handleGroupValue3),
-                                              new Text('difficulté autre',
-                                                  style: _textStyle())
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+
                                   ],
                                 ),
                               ))

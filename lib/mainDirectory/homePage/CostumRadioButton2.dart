@@ -14,53 +14,56 @@ class CostumRadioButtonState extends State {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: new Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-        Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0)),
-        new ElevatedButton.icon(
-          icon: ImageIcon(
-            new AssetImage('images/ikon1.png'),
-            size: 70.0,
-            color: _isSelectedDiving ? Colors.white : Color(0xff60af6c),
-          ),
-          label: Text(''),
-          onPressed: () {
-            setState(() {
-              _isSelectedDiving = true;
-              _isSelectedSecond = false;
-            });
-          },
-          style: TextButton.styleFrom(
-            elevation: 8,
-            shape: new CircleBorder(),
-            backgroundColor:
-                _isSelectedDiving ? Color(0xff60af6c) : Colors.white,
-            minimumSize: const Size(80.0, 80.0),
-          ),
-        ),
-        new Padding(padding: EdgeInsets.all(20.0)),
-        new ElevatedButton.icon(
-          icon: ImageIcon(
-            new AssetImage('images/ikon2.png'),
-            size: 70.0,
-            color: _isSelectedSecond ? Colors.white : Color(0xff60af6c),
-          ),
-          label: Text(''),
-          onPressed: () {
-            setState(() {
-              _isSelectedDiving = false;
-              _isSelectedSecond = true;
-            });
-          },
-          style: TextButton.styleFrom(
-            elevation: 8,
-            shape: new CircleBorder(),
-            backgroundColor:
-                _isSelectedSecond ? Color(0xff60af6c) : Colors.white,
-            minimumSize: const Size(80.0, 80.0),
-          ),
-        ),
-      ]),
+      child: new Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            new Expanded(
+              child: new ElevatedButton.icon(
+                icon: ImageIcon(
+                  new AssetImage('images/ikon1.png'),
+                  size: 70.0,
+                  color: _isSelectedDiving ? Colors.white : Color(0xff60af6c),
+                ),
+                label: Text(''),
+                onPressed: () {
+                  setState(() {
+                    _isSelectedDiving = true;
+                    _isSelectedSecond = false;
+                  });
+                },
+                style: TextButton.styleFrom(
+                  elevation: 8,
+                  shape: new CircleBorder(),
+                  backgroundColor:
+                      _isSelectedDiving ? Color(0xff60af6c) : Colors.white,
+                  minimumSize: Size(80.0, 80.0),
+                ),
+              ),
+            ),
+            new Expanded(
+                child: new ElevatedButton.icon(
+              icon: ImageIcon(
+                new AssetImage('images/ikon2.png'),
+                size: 70.0,
+                color: _isSelectedSecond ? Colors.white : Color(0xff60af6c),
+              ),
+              label: Text(''),
+              onPressed: () {
+                setState(() {
+                  _isSelectedDiving = false;
+                  _isSelectedSecond = true;
+                });
+              },
+              style: TextButton.styleFrom(
+                elevation: 8,
+                shape: new CircleBorder(),
+                backgroundColor:
+                    _isSelectedSecond ? Color(0xff60af6c) : Colors.white,
+                minimumSize: Size(80.0, 80.0),
+              ),
+            ),
+            ),
+          ]),
     );
   }
 }

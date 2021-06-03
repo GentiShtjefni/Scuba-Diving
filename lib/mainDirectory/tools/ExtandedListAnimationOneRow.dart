@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class ExpandedSectionOneRow extends StatefulWidget {
+class ExpandedSectionPays extends StatefulWidget {
   final Widget child;
   final int height;
   final bool expand;
   int sectionHeight;
 
-  ExpandedSectionOneRow({this.expand = false, this.child, this.height});
+  ExpandedSectionPays({this.expand = false, this.child, this.height});
 
   @override
-  _ExpandedSectionOneRowState createState() => _ExpandedSectionOneRowState();
+  _ExpandedSectionPaysState createState() => _ExpandedSectionPaysState();
 }
 
-class _ExpandedSectionOneRowState extends State<ExpandedSectionOneRow>
+class _ExpandedSectionPaysState extends State<ExpandedSectionPays>
     with SingleTickerProviderStateMixin {
   AnimationController expandController;
   Animation<double> animation;
@@ -44,7 +44,7 @@ class _ExpandedSectionOneRowState extends State<ExpandedSectionOneRow>
   }
 
   @override
-  void didUpdateWidget(ExpandedSectionOneRow oldWidget) {
+  void didUpdateWidget(ExpandedSectionPays oldWidget) {
     super.didUpdateWidget(oldWidget);
     _runExpandCheck();
   }
@@ -66,7 +66,7 @@ class _ExpandedSectionOneRowState extends State<ExpandedSectionOneRow>
               //minHeight: 100,
               minWidth: double.infinity,
               maxHeight: widget.height > 5
-                  ? 50
+                  ? 350
                   : widget.height == 1
                       ? 55
                       : widget.height * 50.0),

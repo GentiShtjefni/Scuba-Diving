@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/tools/ExpandedListAnimationWidget.dart';
-import 'package:project/mainDirectory/tools/ExpandedListThreeRows.dart';
-import 'package:project/mainDirectory/tools/ExpandedListTwoRows.dart';
+import 'package:project/mainDirectory/tools/EspandedPays.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
-
-import '../tools/ExpandedListAnimationFourRows.dart';
-
 class PaysDropDownThird extends StatefulWidget {
   @override
   _PaysDropDownThirdState createState() => _PaysDropDownThirdState();
@@ -13,59 +8,19 @@ class PaysDropDownThird extends StatefulWidget {
 
 class _PaysDropDownThirdState extends State<PaysDropDownThird> {
   bool isStrechedPay = false;
-  bool isStrechedAsia = false;
-  bool isStrechedEuropa = false;
-  bool isStrechedNAmerika = false;
-  bool isStrechedSAmerika = false;
-  bool isStrechedOceania = false;
-  bool isStrechedAfrique = false;
-  int groupValue0;
-  int groupValue1;
-  int groupValue2;
-  int groupValue3;
-  int groupValue4;
-  int groupValue5;
-  int groupValue6;
+  String ddPaysAsia3 = 'select';
+  String ddPaysEurope3 = 'select';
+  String ddPaysNAmerica3 = 'select';
+  String ddPaysSAmerica3 = 'select';
+  String ddPaysOceania3 = 'select';
+  String ddPaysAfrica3 = 'select';
+
+  int groupValuePay3;
+
 
   void handleGroupValue0(int value) {
     setState(() {
-      groupValue0 = value;
-    });
-  }
-
-  void handleGroupValue1(int value) {
-    setState(() {
-      groupValue1 = value;
-    });
-  }
-
-  void handleGroupValue2(int value) {
-    setState(() {
-      groupValue2 = value;
-    });
-  }
-
-  void handleGroupValue3(int value) {
-    setState(() {
-      groupValue3 = value;
-    });
-  }
-
-  void handleGroupValue4(int value) {
-    setState(() {
-      groupValue4 = value;
-    });
-  }
-
-  void handleGroupValue5(int value) {
-    setState(() {
-      groupValue5 = value;
-    });
-  }
-
-  void handleGroupValue6(int value) {
-    setState(() {
-      groupValue6 = value;
+      groupValuePay3 = value;
     });
   }
 
@@ -178,709 +133,343 @@ class _PaysDropDownThirdState extends State<PaysDropDownThird> {
                               ],
                             ),
                           ),
-                          ExpandedSection(
+                          ExpandedSectionPays(
                               expand: isStrechedPay,
-                              height: 300,
+                              height: 315,
                               child: Container(
+                                margin: EdgeInsets.symmetric(horizontal: 5),
                                 color: Colors.white70,
-                                child: ListView(
-                                  padding: EdgeInsets.all(0),
-                                  shrinkWrap: true,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
                                   // controller: _scrollController,
                                   children: [
                                     //controller: scrollController2,
-                                    ListTile(
-                                      leading: new Radio(
-                                        value: 0,
-                                        groupValue: groupValue0,
-                                        onChanged: handleGroupValue0,
-                                      ),
-                                      trailing: Icon(isStrechedAsia
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text(
-                                        'Asia',
-                                        style: _textStyle(),
-                                      ),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedAsia = !isStrechedAsia;
-                                        });
-                                      },
+                                    new Row(
+                                      children: [
+                                        new Radio(
+                                          value: 0,
+                                          groupValue: groupValuePay3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child:
+                                          Text('Asia', style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding:
+                                          const EdgeInsets.only(right: 5.0),
+                                          child: DropdownButton(
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddPaysAsia3,
+                                            icon:
+                                            Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddPaysAsia3 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              'Thailande',
+                                              'Inde',
+                                              'Srilanka',
+                                              'Maldives',
+                                              'Oman',
+                                              'Japon',
+                                              'Taiwan',
+                                              'Vietnam',
+                                              'Malaisie',
+                                              'Indonésie',
+                                              'Philippines',
+                                              'Bornéo',
+                                              'autres'
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(
+                                                      value,
+                                                      overflow:
+                                                      TextOverflow.ellipsis,
+                                                      maxLines: 2,
+                                                    ),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    ExpandedSectionFourRows(
-                                      expand: isStrechedAsia,
-                                      height: 200,
-                                      child: ListView(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Thailande',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Inde',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Srilanka',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 3,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Maldives',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 4,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Oman',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 5,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Japon',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 6,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Taiwan',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 7,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Vietnam',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 8,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Malaisie',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 9,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Indonesie',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 10,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Philipines',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 11,
-                                                groupValue: groupValue1,
-                                                onChanged: handleGroupValue1,
-                                              ),
-                                              new Text(
-                                                'Borneo',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    ListTile(
-                                      leading: new Radio(
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 1,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedEuropa
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text(
-                                        'Europe',
-                                        style: _textStyle(),
-                                      ),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedEuropa = !isStrechedEuropa;
-                                        });
-                                      },
+                                          groupValue: groupValuePay3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('Europe',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding:
+                                          const EdgeInsets.only(right: 5.0),
+                                          child: DropdownButton(
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddPaysEurope3,
+                                            icon:
+                                            Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddPaysEurope3 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              'Turquie',
+                                              'Grèce',
+                                              'Malte',
+                                              'Italie',
+                                              'Espagne',
+                                              'France',
+                                              'Portugal',
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(
+                                                      value,
+                                                      overflow:
+                                                      TextOverflow.ellipsis,
+                                                      maxLines: 2,
+                                                    ),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    ExpandedSectionThreeRows(
-                                      expand: isStrechedEuropa,
-                                      height: 100,
-                                      child: ListView(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text(
-                                                'Turquie',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text(
-                                                'Grece',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text(
-                                                'Malte',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 3,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text(
-                                                'Italie',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 4,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text(
-                                                'Espagne',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 5,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text(
-                                                'France',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 6,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text(
-                                                'Portugal',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 7,
-                                                groupValue: groupValue2,
-                                                onChanged: handleGroupValue2,
-                                              ),
-                                              new Text(
-                                                'Autres',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-
-                                    ListTile(
-                                      leading: new Radio(
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 2,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedNAmerika
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text(
-                                        'Amerique du N',
-                                        style: _textStyle(),
-                                      ),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedNAmerika =
-                                              !isStrechedNAmerika;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionTwoRows(
-                                      expand: isStrechedNAmerika,
-                                      height: 100,
-                                      child: ListView(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text(
-                                                'Canada',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text(
-                                                'USA',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text(
-                                                'Mexique',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
+                                          groupValue: groupValuePay3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('Amérique du N',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding:
+                                          const EdgeInsets.only(right: 5.0),
+                                          child: DropdownButton(
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddPaysNAmerica3,
+                                            icon:
+                                            Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddPaysNAmerica3 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              'Canada',
+                                              'USA',
+                                              'Mexique',
+                                              'Cuba',
+                                              'Bahamas',
+                                              'autre',
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(
+                                                      value,
+                                                      overflow:
+                                                      TextOverflow.ellipsis,
+                                                      maxLines: 2,
+                                                    ),
+                                                  );
+                                                }).toList(),
                                           ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 3,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text(
-                                                'Cuba',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 4,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text('Bahamas',
-                                                  style: _textStyle()),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 5,
-                                                groupValue: groupValue3,
-                                                onChanged: handleGroupValue3,
-                                              ),
-                                              new Text(
-                                                'autres',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                    ListTile(
-                                      leading: new Radio(
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 3,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedSAmerika
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text(
-                                        'America de S',
-                                        style: _textStyle(),
-                                      ),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedSAmerika =
-                                              !isStrechedSAmerika;
-                                        });
-                                      },
-                                    ),
-                                    ExpandedSectionFourRows(
-                                      expand: isStrechedSAmerika,
-                                      height: 250,
-                                      child: ListView(children: [
-                                        Row(
-                                          children: [
-                                            new Radio(
-                                              value: 0,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
+                                          groupValue: groupValuePay3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('Amérique du S',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding:
+                                          const EdgeInsets.only(right: 5.0),
+                                          child: DropdownButton(
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddPaysSAmerica3,
+                                            icon:
+                                            Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
                                             ),
-                                            new Text(
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddPaysSAmerica3 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
                                               'Honduras',
-                                              style: _textStyle(),
-                                            ),
-                                            Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 2.0)),
-                                            new Radio(
-                                              value: 1,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text(
                                               'Nicaragua',
-                                              style: _textStyle(),
-                                            ),
-                                            Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 2.0)),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            new Radio(
-                                              value: 2,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text(
-                                              'Panama',
-                                              style: _textStyle(),
-                                            ),
-                                            Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 2.0)),
-                                            new Radio(
-                                              value: 3,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text(
-                                              'Colombia',
-                                              style: _textStyle(),
-                                            ),
-                                            Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 2.0)),
-                                            new Radio(
-                                              value: 4,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text(
-                                              'Equateur',
-                                              style: _textStyle(),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            new Radio(
-                                              value: 5,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text(
-                                              'Bresil',
-                                              style: _textStyle(),
-                                            ),
-                                            Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 2.0)),
-                                            new Radio(
-                                              value: 6,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text(
-                                              'Argentine',
-                                              style: _textStyle(),
-                                            ),
-                                            Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 2.0)),
-                                            new Radio(
-                                              value: 7,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text(
                                               'Costa Rica',
-                                              style: _textStyle(),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            new Radio(
-                                              value: 8,
-                                              groupValue: groupValue4,
-                                              onChanged: handleGroupValue4,
-                                            ),
-                                            new Text(
+                                              'Panama',
+                                              'Colombia',
+                                              'Equateur',
+                                              'Brésil',
+                                              'Argentine',
                                               'autres',
-                                              style: _textStyle(),
-                                            ),
-                                          ],
-                                        )
-                                      ]),
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(
+                                                      value,
+                                                      overflow:
+                                                      TextOverflow.ellipsis,
+                                                      maxLines: 2,
+                                                    ),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    ListTile(
-                                      leading: new Radio(
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 4,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedOceania
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text(
-                                        'Oceania',
-                                        style: _textStyle(),
-                                      ),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedOceania =
-                                              !isStrechedOceania;
-                                        });
-                                      },
+                                          groupValue: groupValuePay3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('Océanie ',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding:
+                                          const EdgeInsets.only(right: 5.0),
+                                          child: DropdownButton(
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddPaysOceania3,
+                                            icon:
+                                            Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddPaysOceania3 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              'Australie',
+                                              'Nouvelle',
+                                              'Zélande',
+                                              'autres',
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(
+                                                      value,
+                                                      overflow:
+                                                      TextOverflow.ellipsis,
+                                                      maxLines: 2,
+                                                    ),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    ExpandedSectionTwoRows(
-                                        expand: isStrechedOceania,
-                                        height: 100,
-                                        child: ListView(children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue5,
-                                                onChanged: handleGroupValue5,
-                                              ),
-                                              new Text(
-                                                'Austrelie',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue5,
-                                                onChanged: handleGroupValue5,
-                                              ),
-                                              new Text(
-                                                'Nouvelle Zélande',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue5,
-                                                onChanged: handleGroupValue5,
-                                              ),
-                                              new Text(
-                                                'auter',
-                                                style: _textStyle(),
-                                              )
-                                            ],
-                                          ),
-                                        ])),
-                                    ListTile(
-                                      leading: new Radio(
+                                    new Row(
+                                      children: [
+                                        new Radio(
                                           value: 5,
-                                          groupValue: groupValue0,
-                                          onChanged: handleGroupValue0),
-                                      trailing: Icon(isStrechedAfrique
-                                          ? Icons.keyboard_arrow_up
-                                          : Icons.keyboard_arrow_down),
-                                      title: Text(
-                                        'Afrique',
-                                        style: _textStyle(),
-                                      ),
-                                      onTap: () {
-                                        setState(() {
-                                          isStrechedAfrique =
-                                              !isStrechedAfrique;
-                                        });
-                                      },
+                                          groupValue: groupValuePay3,
+                                          onChanged: handleGroupValue0,
+                                        ),
+                                        new Expanded(
+                                          child: Text('Afrique',
+                                              style: _textStyle()),
+                                        ),
+                                        new Padding(
+                                          padding:
+                                          const EdgeInsets.only(right: 5.0),
+                                          child: DropdownButton(
+                                            dropdownColor: Colors.grey.shade300,
+                                            value: ddPaysAfrica3,
+                                            icon:
+                                            Icon(Icons.keyboard_arrow_down),
+                                            elevation: 10,
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.black,
+                                            ),
+                                            onChanged: (String newValue) {
+                                              setState(() {
+                                                ddPaysAfrica3 = newValue;
+                                              });
+                                            },
+                                            items: [
+                                              'select',
+                                              'Egypte',
+                                              'Madagascar',
+                                              'Mozambique',
+                                              'Afrique du Sud',
+                                              'autres',
+                                            ].map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                                  return DropdownMenuItem<String>(
+                                                    value: value,
+                                                    child: Text(
+                                                      value,
+                                                      overflow:
+                                                      TextOverflow.ellipsis,
+                                                      maxLines: 2,
+                                                    ),
+                                                  );
+                                                }).toList(),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    ExpandedSectionThreeRows(
-                                        expand: isStrechedAfrique,
-                                        height: 100,
-                                        child: ListView(children: [
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 0,
-                                                groupValue: groupValue6,
-                                                onChanged: handleGroupValue6,
-                                              ),
-                                              new Text(
-                                                'Egypte',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 1,
-                                                groupValue: groupValue6,
-                                                onChanged: handleGroupValue6,
-                                              ),
-                                              new Text(
-                                                'Madagascar',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 2,
-                                                groupValue: groupValue6,
-                                                onChanged: handleGroupValue6,
-                                              ),
-                                              new Text(
-                                                'Afrique du Sud',
-                                                style: _textStyle(),
-                                              ),
-                                              Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0)),
-                                              new Radio(
-                                                value: 3,
-                                                groupValue: groupValue6,
-                                                onChanged: handleGroupValue4,
-                                              ),
-                                              new Text(
-                                                'Mozambique',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              new Radio(
-                                                value: 4,
-                                                groupValue: groupValue6,
-                                                onChanged: handleGroupValue4,
-                                              ),
-                                              new Text(
-                                                'autres',
-                                                style: _textStyle(),
-                                              ),
-                                            ],
-                                          )
-                                        ])),
                                   ],
                                 ),
                               ))

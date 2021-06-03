@@ -1,5 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/tools/ExpandedListAnimationWidget.dart';
+import 'package:project/mainDirectory/tools/ExpandedTopographie.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
 class TopographieDropDown extends StatefulWidget {
@@ -9,11 +10,11 @@ class TopographieDropDown extends StatefulWidget {
 
 class _TopographieDropDownState extends State<TopographieDropDown> {
   bool isStrechedDropDown = false;
-  int groupValue;
+  int groupValueTopographie;
 
-  void handleGroupValue(int value) {
+  void handleGroupValue(int value5) {
     setState(() {
-      groupValue = value;
+      groupValueTopographie = value5;
     });
   }
 
@@ -112,21 +113,21 @@ class _TopographieDropDownState extends State<TopographieDropDown> {
                               ],
                             ),
                           ),
-                          ExpandedSection(
+                          ExpandedSectionTopographie(
                             expand: isStrechedDropDown,
                             height: 100,
                             child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
                               color: Colors.white70,
-                              child: ListView(
-                                padding: EdgeInsets.all(0),
-                                shrinkWrap: true,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   //controller: scrollController2,
                                   Row(
                                     children: [
                                       Radio(
                                           value: 0,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTopographie,
                                           onChanged: handleGroupValue),
                                       new Text('épave', style: _textStyle()),
                                     ],
@@ -135,7 +136,7 @@ class _TopographieDropDownState extends State<TopographieDropDown> {
                                     children: [
                                       Radio(
                                           value: 1,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTopographie,
                                           onChanged: handleGroupValue),
                                       new Text('tombant', style: _textStyle()),
                                     ],
@@ -144,7 +145,7 @@ class _TopographieDropDownState extends State<TopographieDropDown> {
                                     children: [
                                       Radio(
                                           value: 2,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTopographie,
                                           onChanged: handleGroupValue),
                                       new Text('récif', style: _textStyle()),
                                     ],
@@ -153,7 +154,7 @@ class _TopographieDropDownState extends State<TopographieDropDown> {
                                     children: [
                                       Radio(
                                           value: 3,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTopographie,
                                           onChanged: handleGroupValue),
                                       new Text('sable/mangrove',
                                           style: _textStyle()),
@@ -163,7 +164,7 @@ class _TopographieDropDownState extends State<TopographieDropDown> {
                                     children: [
                                       Radio(
                                           value: 4,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTopographie,
                                           onChanged: handleGroupValue),
                                       new Text('grotte', style: _textStyle()),
                                     ],
@@ -172,7 +173,7 @@ class _TopographieDropDownState extends State<TopographieDropDown> {
                                     children: [
                                       Radio(
                                           value: 5,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTopographie,
                                           onChanged: handleGroupValue),
                                       new Text('volcanique',
                                           style: _textStyle()),
@@ -182,7 +183,7 @@ class _TopographieDropDownState extends State<TopographieDropDown> {
                                     children: [
                                       Radio(
                                           value: 6,
-                                          groupValue: groupValue,
+                                          groupValue: groupValueTopographie,
                                           onChanged: handleGroupValue),
                                       new Text('autres:', style: _textStyle()),
                                       Expanded(child: new TextField()),

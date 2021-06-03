@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "36979899464",
+    "firebase_url": "https://scuba-diving-71b43-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "scuba-diving-71b43",
+    "storage_bucket": "scuba-diving-71b43.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36979899464:android:0468b0d7e43db30a476c7d",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36979899464-rt90ndt2dcqmltr808759agk9j7h66v4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEBrlX5BEMQss-xt43lkYkLSf2d6djFrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36979899464-rt90ndt2dcqmltr808759agk9j7h66v4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "36979899464-2aampep3eqs540hu3gn5ednkctko4pif.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.project"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
