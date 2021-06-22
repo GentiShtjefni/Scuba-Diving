@@ -66,7 +66,7 @@ class _ExpandedSectionIncournatableState extends State<ExpandedSectionIncournata
             //minHeight: 100,
               minWidth: double.infinity,
               maxHeight: widget.height > 5
-                  ? 340
+                  ? 300
                   : widget.height == 1
                   ? 55
                   : widget.height * 50.0),

@@ -13,18 +13,18 @@ class SliderClassListingPage extends StatefulWidget {
 }
 
 class SliderClassListingPageState extends State {
-  int _currentPage = 0;
+  int _currentPageResult = 0;
 
   @override
   void initState() {
     super.initState();
     Timer.periodic(Duration(seconds: 4), (Timer timer) {
-      if (_currentPage < 2) {
-        _currentPage++;
+      if (_currentPageResult < 2) {
+        _currentPageResult++;
       } else {
-        _currentPage = 0;
+        _currentPageResult = 0;
       }
-      _pageController.animateToPage(_currentPage,
+      _pageControllerResult.animateToPage(_currentPageResult,
           duration: Duration(milliseconds: 500), curve: Curves.easeIn);
     });
   }
@@ -32,16 +32,16 @@ class SliderClassListingPageState extends State {
   @override
   void dispose() {
     super.dispose();
-    _pageController.dispose();
+    _pageControllerResult.dispose();
   }
 
   _onPageChanged(int index) {
     setState(() {
-      _currentPage = index;
+      _currentPageResult = index;
     });
   }
 
-  final PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageControllerResult = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -53,50 +53,12 @@ class SliderClassListingPageState extends State {
           Expanded(
             child: PageView.builder(
               scrollDirection: Axis.horizontal,
-              controller: _pageController,
+              controller: _pageControllerResult,
               onPageChanged: _onPageChanged,
               itemCount: slideList.length,
               itemBuilder: (ctx, i) => SlideItem(i),
             ),
           ),
-
-          // Expanded(
-          //     child: Stack(
-          //       alignment: AlignmentDirectional.bottomCenter,
-          //       children: [
-          //         PageView.builder(
-          //           scrollDirection: Axis.horizontal,
-          //           onPageChanged: _onPageChanged,
-          //           controller: _pageController,
-          //           itemCount: slideList.length,
-          //           itemBuilder: (ctx, i) => SlideItem(i),
-          //         ),
-          //         Stack(
-          //           alignment: AlignmentDirectional.topStart,
-          //           children: [
-          //             // new Padding(padding: const EdgeInsets.symmetric(vertical: 20.0)),
-          //             Container(
-          //               margin: const EdgeInsets.only(bottom: 35),
-          //               child: Row(
-          //                 mainAxisSize: MainAxisSize.max,
-          //                 mainAxisAlignment: MainAxisAlignment.center,
-          //                 children: [
-          //                   SizedBox(
-          //                     height: 10,
-          //                   ),
-          //                   for(int i = 0; i<slideList.length; i++)
-          //                     if( i == _currentPage )
-          //                       SlideDots(true)
-          //                     else
-          //                       SlideDots(false)
-          //                 ],
-          //               )
-          //             )
-          //           ],
-          //         )
-          //       ],
-          //     ),
-          // ),
         ],
       ),
     );

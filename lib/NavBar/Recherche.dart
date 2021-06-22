@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
+import 'package:project/mainDirectory/AppBar.dart';
 
 
 class Recherche extends StatefulWidget {
@@ -72,224 +73,168 @@ class _RechercheState extends State<Recherche> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // endDrawer: NavDrawer(),
-      // appBar: AppBar(
-      //   flexibleSpace: Container(
-      //     decoration: BoxDecoration(
-      //         gradient: LinearGradient(
-      //             begin: Alignment.topLeft,
-      //             end: Alignment.bottomRight,
-      //             colors: <Color>[
-      //               Color(0xff94e9ff),
-      //               Color(0xff4da9ef),
-      //             ])),
-      //   ),
-      //   title: new Image.asset(
-      //     'images/logo.png',
-      //     width: 50.0,
-      //     height: 50.0,
-      //   ),
-      // ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: new AssetImage('images/bg1.png'),
-            fit: BoxFit.cover,
-            alignment: Alignment.bottomCenter,
+    return MainScreen(
+      currentIndex: 0,
+      isSelectedHome: false,
+      isSelectedSecond: false,
+      isSelectedThird: false,
+      isSelectedFourth: false,
+      child: Scaffold(
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: new AssetImage('images/bg1.png'),
+              fit: BoxFit.cover,
+              alignment: Alignment.bottomCenter,
+            ),
           ),
-        ),
-        child: new FloatingSearchBar(
-                controller: searchController,
-                  body: FloatingSearchBarScrollNotifier(
-                      child: SearchResultsListView(
-                          searchTerm: selectedTerm
-                      )
+          child: new FloatingSearchBar(
+                  controller: searchController,
+                    body: FloatingSearchBarScrollNotifier(
+                        child: SearchResultsListView(
+                            searchTerm: selectedTerm
+                        )
+                    ),
+                  transition: CircularFloatingSearchBarTransition(),
+                  physics: BouncingScrollPhysics(),
+                  title: Text(
+                      selectedTerm ?? 'Recherche Rapide',
+                  style: Theme.of(context).textTheme.headline6,
                   ),
-                transition: CircularFloatingSearchBarTransition(),
-                physics: BouncingScrollPhysics(),
-                title: Text(
-                    selectedTerm ?? 'Recherche Rapide',
-                style: Theme.of(context).textTheme.headline6,
-                ),
-                hint: 'Recherche par nom',
-                actions: [
-                  FloatingSearchBarAction.searchToClear(),
-                ],
-                onQueryChanged: (query){
-                  setState(() {
-                    filteredSearchHistory = filterSearchTerm(filter: query);
-                  });
-                },
-                onSubmitted: (query){
-                  setState(() {
-                    addSearchTerm(query);
-                    selectedTerm = query;
-                  });
-                  searchController.close();
-                },
-                builder: (context, transition){
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Material(
-                      color: Colors.white,
-                      elevation: 8,
-                      child: Builder(
-                        builder: (context){
-                          if(filteredSearchHistory.isEmpty && searchController.query.isEmpty){
-                            return Container(
-                              height: 56,
-                              width: double.infinity,
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Start searching',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: Theme.of(context).textTheme.caption,
-                              ),
-                            );
-                          }else if(filteredSearchHistory.isEmpty){
-                            return ListTile(
-                              title: Text(searchController.query),
-                              leading: Icon(Icons.search),
-                              onTap: (){
-                                setState(() {
-                                  addSearchTerm(searchController.query);
-                                  selectedTerm = searchController.query;
-                                });
-                                searchController.close();
-                              },
+                  hint: 'Recherche par nom',
+                  actions: [
+                    FloatingSearchBarAction.searchToClear(),
+                  ],
+                  onQueryChanged: (query){
+                    setState(() {
+                      filteredSearchHistory = filterSearchTerm(filter: query);
+                    });
+                  },
+                  onSubmitted: (query){
+                    setState(() {
+                      addSearchTerm(query);
+                      selectedTerm = query;
+                    });
+                    searchController.close();
+                  },
+                  builder: (context, transition){
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Material(
+                        color: Colors.white,
+                        elevation: 8,
+                        child: Builder(
+                          builder: (context){
+                            if(filteredSearchHistory.isEmpty && searchController.query.isEmpty){
+                              return Container(
+                                height: 56,
+                                width: double.infinity,
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'Start searching',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: Theme.of(context).textTheme.caption,
+                                ),
+                              );
+                            }else if(filteredSearchHistory.isEmpty){
+                              return ListTile(
+                                title: Text(searchController.query),
+                                leading: Icon(Icons.search),
+                                onTap: (){
+                                  setState(() {
+                                    addSearchTerm(searchController.query);
+                                    selectedTerm = searchController.query;
+                                  });
+                                  searchController.close();
+                                },
 
-                            );
-                          }else {
-                            return Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: filteredSearchHistory
-                                  .map(
-                                    (term) => ListTile(
-                                  title: Text(
-                                    term,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                  leading: const Icon(Icons.history),
-                                  trailing: IconButton(
-                                    icon: const Icon(Icons.clear),
-                                    onPressed: () {
+                              );
+                            }else {
+                              return Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: filteredSearchHistory
+                                    .map(
+                                      (term) => ListTile(
+                                    title: Text(
+                                      term,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    leading: const Icon(Icons.history),
+                                    trailing: IconButton(
+                                      icon: const Icon(Icons.clear),
+                                      onPressed: () {
+                                        setState(() {
+                                          deleteSearchTerm(term);
+                                        });
+                                      },
+                                    ),
+                                    onTap: () {
                                       setState(() {
-                                        deleteSearchTerm(term);
+                                        putSearchTermFirst(term);
+                                        selectedTerm = term;
                                       });
+                                      searchController.close();
                                     },
                                   ),
-                                  onTap: () {
-                                    setState(() {
-                                      putSearchTermFirst(term);
-                                      selectedTerm = term;
-                                    });
-                                    searchController.close();
-                                  },
-                                ),
-                              )
-                                  .toList(),
-                            );
-                          }
-                        },
+                                )
+                                    .toList(),
+                              );
+                            }
+                          },
+                        ),
                       ),
-                    ),
-                  );
-                },
-              ),
+                    );
+                  },
+                ),
+        ),
+              //     Padding(
+          //       padding: const EdgeInsets.fromLTRB(20, 10, 20,10),
+          //       child: new Material(
+          //   elevation: 5.0,
+          //   borderRadius: BorderRadius.circular(22.0),
+          //   child: new TextField(
+          //       // autofocus: true,
+          //       textAlign: TextAlign.start,
+          //       decoration: InputDecoration(
+          //         hintText: 'Recherche par Nom, Lieu',
+          //         hintStyle: TextStyle(
+          //           fontSize: 20,
+          //         ),
+          //         suffixIcon: new Container(
+          //           margin: const EdgeInsets.all(5.1),
+          //           decoration: new BoxDecoration(
+          //             color: Colors.green,
+          //             borderRadius: BorderRadius.only(
+          //                 topRight: Radius.circular(15.0),
+          //                 bottomRight: Radius.circular(15.0)),
+          //           ),
+          //           child: Icon(
+          //               Icons.search,
+          //               size: 24.0,
+          //               color: Colors.white,
+          //             ),
+          //
+          //         ),
+          //         border: InputBorder.none,
+          //         contentPadding:
+          //         EdgeInsets.symmetric(horizontal: 22.0, vertical: 15.0),
+          //       ),
+          //   ),
+          // ),
+          //     ),
+          //     Center(
+          //       child: new Text('Dernières recherches',
+          //       style: TextStyle(
+          //         color: Colors.blue.shade900,
+          //         fontSize: 18,
+          //       )),
+          //     ),
       ),
-            //     Padding(
-        //       padding: const EdgeInsets.fromLTRB(20, 10, 20,10),
-        //       child: new Material(
-        //   elevation: 5.0,
-        //   borderRadius: BorderRadius.circular(22.0),
-        //   child: new TextField(
-        //       // autofocus: true,
-        //       textAlign: TextAlign.start,
-        //       decoration: InputDecoration(
-        //         hintText: 'Recherche par Nom, Lieu',
-        //         hintStyle: TextStyle(
-        //           fontSize: 20,
-        //         ),
-        //         suffixIcon: new Container(
-        //           margin: const EdgeInsets.all(5.1),
-        //           decoration: new BoxDecoration(
-        //             color: Colors.green,
-        //             borderRadius: BorderRadius.only(
-        //                 topRight: Radius.circular(15.0),
-        //                 bottomRight: Radius.circular(15.0)),
-        //           ),
-        //           child: Icon(
-        //               Icons.search,
-        //               size: 24.0,
-        //               color: Colors.white,
-        //             ),
-        //
-        //         ),
-        //         border: InputBorder.none,
-        //         contentPadding:
-        //         EdgeInsets.symmetric(horizontal: 22.0, vertical: 15.0),
-        //       ),
-        //   ),
-        // ),
-        //     ),
-        //     Center(
-        //       child: new Text('Dernières recherches',
-        //       style: TextStyle(
-        //         color: Colors.blue.shade900,
-        //         fontSize: 18,
-        //       )),
-        //     ),
-
-
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        backgroundColor: Color(0xff94e9ff),
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/ikon1.png'), size: 30.0),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/ikon2.png')),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/communaute_icon.png')),
-            label: '',
-          ),
-        ],
-        onTap: (index){
-          setState(() {
-            currentIndex = index;
-            Navigator.of(context).pushNamed(pageIndex());
-          });
-        },
-        // onTap: _onItemTapped,
-      )
     );
-  }
-  String pageIndex (){
-    if(currentIndex == 0){
-      return "/";
-    }else if(currentIndex == 1){
-      return "/plonger";
-    }else if(currentIndex == 2){
-      return "/snorkeling";
-    }else if(currentIndex == 3){
-      return "/login";
-    }else return "/";
   }
 }
 

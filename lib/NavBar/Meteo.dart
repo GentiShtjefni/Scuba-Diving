@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:project/mainDirectory/homePage/navbar.dart';
+import 'package:project/mainDirectory/AppBar.dart';
 
 class Meteo extends StatefulWidget {
   Meteo({Key key}) : super(key: key);
@@ -120,27 +120,13 @@ class _MeteoState extends State<Meteo> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      endDrawer: NavDrawer(),
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                Color(0xff94e9ff),
-                Color(0xff4da9ef),
-              ])),
-        ),
-        title: new Image.asset(
-          'images/logo.png',
-          width: 50.0,
-          height: 50.0,
-        ),
-      ),
-      body: new Container(
+    return MainScreen(
+      currentIndex: 0,
+      isSelectedHome: false,
+      isSelectedSecond: false,
+      isSelectedThird: false,
+      isSelectedFourth: false,
+      child: new Container(
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
@@ -224,10 +210,10 @@ class _MeteoState extends State<Meteo> {
                       child: image == null
                           ? new Center(child: new CircularProgressIndicator())
                           : new Image.network(
-                              'https://www.metaweather.com/static/img/weather/png/64/$image.png',
-                              height: 80,
-                              width: 70,
-                            )),
+                        'https://www.metaweather.com/static/img/weather/png/64/$image.png',
+                        height: 80,
+                        width: 70,
+                      )),
                 ],
               ),
               Padding(
@@ -237,14 +223,14 @@ class _MeteoState extends State<Meteo> {
                   child: new Row(
                     children: [
                       for (var i=0; i<7;i++)
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: forecastElement(
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: forecastElement(
                             i+1,
-                          temperature,
-                          image,
-                        ),
-                      )
+                            temperature,
+                            image,
+                          ),
+                        )
                     ],
                   ),
                 ),
@@ -253,53 +239,7 @@ class _MeteoState extends State<Meteo> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        backgroundColor: Color(0xff94e9ff),
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/ikon1.png'), size: 30.0),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/ikon2.png')),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/communaute_icon.png')),
-            label: '',
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-            Navigator.of(context).pushNamed(pageIndex());
-          });
-
-        },
-        // onTap: _onItemTapped,
-      ),
     );
-  }
-
-  String pageIndex() {
-    if (currentIndex == 0) {
-      return "/";
-    } else if (currentIndex == 1) {
-      return "/plonger";
-    } else if (currentIndex == 2) {
-      return "/snorkeling";
-    } else if (currentIndex == 3) {
-      return "/login";
-    } else
-      return "/";
   }
 
 // void _search() async {

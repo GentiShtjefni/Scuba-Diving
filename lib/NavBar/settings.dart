@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/homePage/navbar.dart';
+import 'package:project/mainDirectory/AppBar.dart';
 import 'package:project/mainDirectory/tools/ExpandedAbone.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
-class Settings extends StatefulWidget {
-  const Settings({Key key}) : super(key: key);
+class Settingss extends StatefulWidget {
+  const Settingss({Key key}) : super(key: key);
 
   @override
-  _SettingsState createState() => _SettingsState();
+  _SettingssState createState() => _SettingssState();
 }
 
-class _SettingsState extends State<Settings> {
-  int currentIndex = 0;
+class _SettingssState extends State<Settingss> {
   int _currentIndex = 0;
   bool isSelectedAbonne = true;
   bool isStrechedAbone = false;
@@ -30,27 +29,13 @@ class _SettingsState extends State<Settings> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawer: NavDrawer(),
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: <Color>[
-                  Color(0xff94e9ff),
-                  Color(0xff4da9ef),
-                ]),
-          ),
-        ),
-        title: new Image.asset(
-          'images/logo.png',
-          width: 50.0,
-          height: 50.0,
-        ),
-      ),
-      body: new Container(
+    return MainScreen(
+      currentIndex: 0,
+      isSelectedHome: false,
+      isSelectedSecond: false,
+      isSelectedThird: false,
+      isSelectedFourth: false,
+      child: new Container(
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
@@ -99,17 +84,17 @@ class _SettingsState extends State<Settings> {
                             borderRadius: BorderRadius.circular(30),
                             gradient: isSelectedAbonne
                                 ? LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                        Color(0xff59a5da),
-                                        Color(0xff60af6c),
-                                      ])
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xff59a5da),
+                                  Color(0xff60af6c),
+                                ])
                                 : null,
                           ),
                           child: Padding(
                             padding:
-                                const EdgeInsets.symmetric(horizontal: 14.0),
+                            const EdgeInsets.symmetric(horizontal: 14.0),
                             child: new Center(
                               child: new Text('Je m’abonne',
                                   style: new TextStyle(
@@ -140,16 +125,16 @@ class _SettingsState extends State<Settings> {
                             gradient: isSelectedAbonne
                                 ? null
                                 : LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                        Color(0xff59a5da),
-                                        Color(0xff60af6c),
-                                      ]),
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xff59a5da),
+                                  Color(0xff60af6c),
+                                ]),
                           ),
                           child: Padding(
                             padding:
-                                const EdgeInsets.symmetric(horizontal: 14.0),
+                            const EdgeInsets.symmetric(horizontal: 14.0),
                             child: new Center(
                               child: new Text('Je me connecte',
                                   style: new TextStyle(
@@ -230,7 +215,7 @@ class _SettingsState extends State<Settings> {
                               elevation: 10,
                               borderRadius: BorderRadius.circular(30),
                               child: new Container(
-                                  // height: double.infinity,
+                                // height: double.infinity,
                                   width: double.infinity,
                                   child: Padding(
                                     padding: const EdgeInsets.all(2.0),
@@ -240,209 +225,209 @@ class _SettingsState extends State<Settings> {
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                           children: [
                                             Expanded(
                                                 child: Material(
-                                              elevation: 10,
-                                              borderRadius:
+                                                  elevation: 10,
+                                                  borderRadius:
                                                   BorderRadius.circular(30),
-                                              child: Column(
-                                                children: [
-                                                  Container(
-                                                    height: 45,
-                                                    width: double.infinity,
-                                                    padding: EdgeInsets.only(
-                                                        right: 10),
-                                                    constraints: BoxConstraints(
-                                                      minHeight: 45,
-                                                      minWidth: double.infinity,
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Row(
-                                                      mainAxisAlignment:
+                                                  child: Column(
+                                                    children: [
+                                                      Container(
+                                                        height: 45,
+                                                        width: double.infinity,
+                                                        padding: EdgeInsets.only(
+                                                            right: 10),
+                                                        constraints: BoxConstraints(
+                                                          minHeight: 45,
+                                                          minWidth: double.infinity,
+                                                        ),
+                                                        alignment: Alignment.center,
+                                                        child: Row(
+                                                          mainAxisAlignment:
                                                           MainAxisAlignment
                                                               .spaceBetween,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Padding(
-                                                            padding:
+                                                          children: [
+                                                            Expanded(
+                                                              child: Padding(
+                                                                padding:
                                                                 const EdgeInsets
-                                                                        .symmetric(
+                                                                    .symmetric(
                                                                     horizontal:
-                                                                        10,
+                                                                    10,
                                                                     vertical:
-                                                                        10),
-                                                            child: Text(
-                                                              'TYPE DE ABONNEMENT ACTUEL',
-                                                              style:
+                                                                    10),
+                                                                child: Text(
+                                                                  'TYPE DE ABONNEMENT ACTUEL',
+                                                                  style:
                                                                   new TextStyle(
-                                                                fontSize: 16,
-                                                                color:
+                                                                    fontSize: 16,
+                                                                    color:
                                                                     Colors.blue,
+                                                                  ),
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
+                                                            Padding(
+                                                              padding:
                                                               const EdgeInsets
                                                                   .all(0.0),
-                                                          child:
+                                                              child:
                                                               GestureDetector(
-                                                            onTap: () {
-                                                              setState(() {
-                                                                isStrechedAbone =
+                                                                onTap: () {
+                                                                  setState(() {
+                                                                    isStrechedAbone =
                                                                     !isStrechedAbone;
-                                                              });
-                                                            },
-                                                            child: Icon(
-                                                              isStrechedAbone
-                                                                  ? Icons
+                                                                  });
+                                                                },
+                                                                child: Icon(
+                                                                  isStrechedAbone
+                                                                      ? Icons
                                                                       .keyboard_arrow_up
-                                                                  : Icons
+                                                                      : Icons
                                                                       .keyboard_arrow_down,
-                                                              color:
+                                                                  color:
                                                                   Colors.blue,
-                                                              size: 40,
+                                                                  size: 40,
+                                                                ),
+                                                              ),
                                                             ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      ExpandedSectionAbone(
+                                                        expand: isStrechedAbone,
+                                                        height: 100,
+                                                        child: Container(
+                                                          margin: EdgeInsets.all(10),
+                                                          color: Colors.white70,
+                                                          child: Column(
+                                                            children: [
+                                                              new Text(
+                                                                  'Particuliers:',
+                                                                  style: new TextStyle(
+                                                                    color: Colors.green,
+                                                                    fontSize:15,
+                                                                  )),
+                                                              new Divider(
+                                                                color: Colors.blue,
+                                                                height: 2.1,
+                                                              ),
+                                                              Row(
+                                                                children: [
+                                                                  new Radio(
+                                                                      value: 0,
+                                                                      groupValue:
+                                                                      groupValueParticuliers,
+                                                                      onChanged:
+                                                                      handleGroupValueParticuliers
+                                                                  ),
+                                                                  new Text('Découverte',
+                                                                      style: new TextStyle(
+                                                                        color: groupValueParticuliers == 0 ? Colors.blue : Colors.black,
+                                                                        fontSize: 15,
+                                                                      ))
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                children: [
+                                                                  new Radio(
+                                                                      value: 1,
+                                                                      groupValue:
+                                                                      groupValueParticuliers,
+                                                                      onChanged:
+                                                                      handleGroupValueParticuliers
+                                                                  ),
+                                                                  new Text('Explorateur ',
+                                                                      style: new TextStyle(
+                                                                        color: groupValueParticuliers == 1 ? Colors.blue : Colors.black,
+                                                                        fontSize: 15,
+                                                                      ))
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                children: [
+                                                                  new Radio(
+                                                                      value: 2,
+                                                                      groupValue:
+                                                                      groupValueParticuliers,
+                                                                      onChanged:
+                                                                      handleGroupValueParticuliers
+                                                                  ),
+                                                                  new Text('Ambassadeur',
+                                                                      style: new TextStyle(
+                                                                        color: groupValueParticuliers == 2 ? Colors.blue : Colors.black,
+                                                                        fontSize: 15,
+                                                                      ))
+                                                                ],
+                                                              ),
+                                                              new Text(
+                                                                  'Pro:',
+                                                                  style: new TextStyle(
+                                                                    color: Colors.green,
+                                                                    fontSize:15,
+                                                                  )),
+                                                              new Divider(
+                                                                color: Colors.blue,
+                                                                height: 2.1,
+                                                              ),
+                                                              Row(
+                                                                children: [
+                                                                  new Radio(
+                                                                    value: 0,
+                                                                    groupValue:
+                                                                    groupValuePro,
+                                                                    onChanged:
+                                                                    handleGroupValuePro,
+                                                                  ),
+                                                                  new Text('Côtier',
+                                                                      style: new TextStyle(
+                                                                        color: groupValuePro == 0 ? Colors.blue : Colors.black,
+                                                                        fontSize: 15,
+                                                                      ))
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                children: [
+                                                                  new Radio(
+                                                                      value: 1,
+                                                                      groupValue:
+                                                                      groupValuePro,
+                                                                      onChanged:
+                                                                      handleGroupValuePro
+                                                                  ),
+                                                                  new Text('Pélagique ',
+                                                                      style: new TextStyle(
+                                                                        color: groupValuePro == 1 ? Colors.blue : Colors.black,
+                                                                        fontSize: 15,
+                                                                      ))
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                children: [
+                                                                  new Radio(
+                                                                      value: 2,
+                                                                      groupValue:
+                                                                      groupValuePro,
+                                                                      onChanged:
+                                                                      handleGroupValuePro
+                                                                  ),
+                                                                  new Text('Abyssal',
+                                                                      style: new TextStyle(
+                                                                        color: groupValuePro == 2 ? Colors.blue : Colors.black,
+                                                                        fontSize: 15,
+                                                                      ))
+                                                                ],
+                                                              ),
+
+                                                            ],
                                                           ),
                                                         ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  ExpandedSectionAbone(
-                                                    expand: isStrechedAbone,
-                                                    height: 100,
-                                                    child: Container(
-                                                      margin: EdgeInsets.all(10),
-                                                      color: Colors.white70,
-                                                      child: Column(
-                                                        children: [
-                                                          new Text(
-                                                              'Particuliers:',
-                                                          style: new TextStyle(
-                                                            color: Colors.green,
-                                                            fontSize:15,
-                                                          )),
-                                                          new Divider(
-                                                            color: Colors.blue,
-                                                            height: 2.1,
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              new Radio(
-                                                                  value: 0,
-                                                                  groupValue:
-                                                                      groupValueParticuliers,
-                                                                  onChanged:
-                                                                      handleGroupValueParticuliers
-                                                              ),
-                                                              new Text('Découverte',
-                                                              style: new TextStyle(
-                                                                color: groupValueParticuliers == 0 ? Colors.blue : Colors.black,
-                                                                fontSize: 15,
-                                                              ))
-                                                            ],
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              new Radio(
-                                                                  value: 1,
-                                                                  groupValue:
-                                                                  groupValueParticuliers,
-                                                                  onChanged:
-                                                                  handleGroupValueParticuliers
-                                                              ),
-                                                              new Text('Explorateur ',
-                                                                  style: new TextStyle(
-                                                                    color: groupValueParticuliers == 1 ? Colors.blue : Colors.black,
-                                                                    fontSize: 15,
-                                                                  ))
-                                                            ],
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              new Radio(
-                                                                  value: 2,
-                                                                  groupValue:
-                                                                  groupValueParticuliers,
-                                                                  onChanged:
-                                                                  handleGroupValueParticuliers
-                                                              ),
-                                                              new Text('Ambassadeur',
-                                                                  style: new TextStyle(
-                                                                    color: groupValueParticuliers == 2 ? Colors.blue : Colors.black,
-                                                                    fontSize: 15,
-                                                                  ))
-                                                            ],
-                                                          ),
-                                                          new Text(
-                                                              'Pro:',
-                                                              style: new TextStyle(
-                                                                color: Colors.green,
-                                                                fontSize:15,
-                                                              )),
-                                                          new Divider(
-                                                            color: Colors.blue,
-                                                            height: 2.1,
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              new Radio(
-                                                                  value: 0,
-                                                                  groupValue:
-                                                                  groupValuePro,
-                                                                  onChanged:
-                                                                  handleGroupValuePro,
-                                                              ),
-                                                              new Text('Côtier',
-                                                                  style: new TextStyle(
-                                                                    color: groupValuePro == 0 ? Colors.blue : Colors.black,
-                                                                    fontSize: 15,
-                                                                  ))
-                                                            ],
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              new Radio(
-                                                                  value: 1,
-                                                                  groupValue:
-                                                                  groupValuePro,
-                                                                  onChanged:
-                                                                  handleGroupValuePro
-                                                              ),
-                                                              new Text('Pélagique ',
-                                                                  style: new TextStyle(
-                                                                    color: groupValuePro == 1 ? Colors.blue : Colors.black,
-                                                                    fontSize: 15,
-                                                                  ))
-                                                            ],
-                                                          ),
-                                                          Row(
-                                                            children: [
-                                                              new Radio(
-                                                                  value: 2,
-                                                                  groupValue:
-                                                                  groupValuePro,
-                                                                  onChanged:
-                                                                  handleGroupValuePro
-                                                              ),
-                                                              new Text('Abyssal',
-                                                                  style: new TextStyle(
-                                                                    color: groupValuePro == 2 ? Colors.blue : Colors.black,
-                                                                    fontSize: 15,
-                                                                  ))
-                                                            ],
-                                                          ),
-                                                          
-                                                        ],
                                                       ),
-                                                    ),
+                                                    ],
                                                   ),
-                                                ],
-                                              ),
-                                            ))
+                                                ))
                                           ],
                                         ),
                                       ],
@@ -599,51 +584,6 @@ class _SettingsState extends State<Settings> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        backgroundColor: Color(0xff94e9ff),
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/ikon1.png'), size: 30.0),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/ikon2.png')),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/communaute_icon.png')),
-            label: '',
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-            Navigator.of(context).pushNamed(pageIndex());
-          });
-        },
-        // onTap: _onItemTapped,
-      ),
     );
-  }
-
-  String pageIndex() {
-    if (currentIndex == 0) {
-      return "/";
-    } else if (currentIndex == 1) {
-      return "/plonger";
-    } else if (currentIndex == 2) {
-      return "/snorkeling";
-    } else if (currentIndex == 3) {
-      return "/login";
-    } else
-      return "/";
   }
 }

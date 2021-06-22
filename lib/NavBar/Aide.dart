@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/homePage/navbar.dart';
+import 'package:project/mainDirectory/AppBar.dart';
 
 class Aide extends StatefulWidget {
   const Aide({Key key}) : super(key: key);
@@ -15,26 +15,13 @@ class _AideState extends State<Aide> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawer: NavDrawer(),
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                Color(0xff94e9ff),
-                Color(0xff4da9ef),
-              ])),
-        ),
-        title: new Image.asset(
-          'images/logo.png',
-          width: 50.0,
-          height: 50.0,
-        ),
-      ),
-      body: new Container(
+    return MainScreen(
+      currentIndex: 0,
+      isSelectedHome: false,
+      isSelectedSecond: false,
+      isSelectedThird: false,
+      isSelectedFourth: false,
+      child: new Container(
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
@@ -49,25 +36,25 @@ class _AideState extends State<Aide> {
             new Container(
               child: Center(
                   child: Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Container(
-                  height: 100,
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: new AssetImage('images/questions.png'),
-                        fit: BoxFit.fitHeight),
-                  ),
-                  child: new Text(
-                    'Des question ?',
-                    style: new TextStyle(
-                        fontSize: 20,
-                        color: Colors.blue.shade900,
-                        fontWeight: FontWeight.w900),
-                  ),
-                ),
-              )),
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Container(
+                      height: 100,
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: new AssetImage('images/questions.png'),
+                            fit: BoxFit.fitHeight),
+                      ),
+                      child: new Text(
+                        'Des question ?',
+                        style: new TextStyle(
+                            fontSize: 20,
+                            color: Colors.blue.shade900,
+                            fontWeight: FontWeight.w900),
+                      ),
+                    ),
+                  )),
             ),
             new Padding(
               padding: EdgeInsets.fromLTRB(20, 40, 20, 20),
@@ -78,9 +65,9 @@ class _AideState extends State<Aide> {
                     new TextButton(
                       style: new ButtonStyle(
                         fixedSize: MaterialStateProperty.resolveWith(
-                            (states) => Size(double.infinity, 5)),
+                                (states) => Size(double.infinity, 5)),
                         backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.white70),
+                                (states) => Colors.white70),
                       ),
                       child: Text(
                         'Comment utiliser l’App',
@@ -103,9 +90,9 @@ class _AideState extends State<Aide> {
                     new TextButton(
                       style: new ButtonStyle(
                         fixedSize: MaterialStateProperty.resolveWith(
-                            (states) => Size(double.infinity, 5)),
+                                (states) => Size(double.infinity, 5)),
                         backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.white70),
+                                (states) => Colors.white70),
                       ),
                       child: Text(
                         'Politique de confidentialité',
@@ -128,9 +115,9 @@ class _AideState extends State<Aide> {
                     new TextButton(
                       style: new ButtonStyle(
                         fixedSize: MaterialStateProperty.resolveWith(
-                            (states) => Size(double.infinity, 5)),
+                                (states) => Size(double.infinity, 5)),
                         backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.white70),
+                                (states) => Colors.white70),
                       ),
                       child: Text(
                         'Nous contacter/suivre',
@@ -153,9 +140,9 @@ class _AideState extends State<Aide> {
                     new TextButton(
                       style: new ButtonStyle(
                         fixedSize: MaterialStateProperty.resolveWith(
-                            (states) => Size(double.infinity, 5)),
+                                (states) => Size(double.infinity, 5)),
                         backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.white70),
+                                (states) => Colors.white70),
                       ),
                       child: Text(
                         'Signalement',
@@ -178,9 +165,9 @@ class _AideState extends State<Aide> {
                     new TextButton(
                       style: new ButtonStyle(
                         fixedSize: MaterialStateProperty.resolveWith(
-                            (states) => Size(double.infinity, 5)),
+                                (states) => Size(double.infinity, 5)),
                         backgroundColor: MaterialStateColor.resolveWith(
-                            (states) => Colors.white70),
+                                (states) => Colors.white70),
                       ),
                       child: Text(
                         '...',
@@ -279,51 +266,6 @@ class _AideState extends State<Aide> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        backgroundColor: Color(0xff94e9ff),
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/ikon1.png'), size: 30.0),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/ikon2.png')),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/communaute_icon.png')),
-            label: '',
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-            Navigator.of(context).pushNamed(pageIndex());
-          });
-        },
-        // onTap: _onItemTapped,
-      ),
     );
-  }
-
-  String pageIndex() {
-    if (currentIndex == 0) {
-      return "/";
-    } else if (currentIndex == 1) {
-      return "/plonger";
-    } else if (currentIndex == 2) {
-      return "/snorkeling";
-    } else if (currentIndex == 3) {
-      return "/login";
-    } else
-      return "/";
   }
 }

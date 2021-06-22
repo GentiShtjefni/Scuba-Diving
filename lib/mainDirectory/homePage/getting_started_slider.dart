@@ -15,11 +15,10 @@ class SliderClass extends StatefulWidget {
 
 class SliderClassState extends State {
   int _currentPage = 0;
-
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(seconds: 5), (Timer timer) {
+    Timer.periodic(Duration(seconds: 4), (Timer timer) {
       if (_currentPage < 2) {
         _currentPage++;
       } else {
@@ -44,11 +43,12 @@ class SliderClassState extends State {
 
   final PageController _pageController = PageController(initialPage: 0);
 
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 300,
-      height: 230,
+      height: 300,
       child: Column(
         children: [
           Expanded(
@@ -60,8 +60,9 @@ class SliderClassState extends State {
               itemBuilder: (ctx, i) => SlideItem(i),
             ),
           ),
-          Padding(padding: EdgeInsets.all(10)),
-
+          new SizedBox(
+            height: 10,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

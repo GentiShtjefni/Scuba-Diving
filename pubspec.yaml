@@ -46,6 +46,12 @@ dependencies:
   bloc: ^7.0.0
   flutter_bloc: ^7.0.1
   material_floating_search_bar: ^0.3.4
+  device_preview: ^0.7.3
+  provider: ^5.0.0
+  flutter_spinkit: ^5.0.0
+  flutter_native_splash: ^1.2.0
+
+
 
 
 #  google_maps_flutter: ^2.0.3
@@ -53,6 +59,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: images/scuba_diving_logo.png
+  android: true
+  ios: true
+  android_gravity: fill
+  ios_content_mode: scaleAspectFill
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
