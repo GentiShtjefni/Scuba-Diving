@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/mainDirectory/tools/ExpandedListAnimationWidget.dart';
+import 'package:project/mainDirectory/tools/ExpandedTopographie.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
 class TopographieDropDownThird extends StatefulWidget {
@@ -112,14 +112,14 @@ class _TopographieDropDownThirdState extends State<TopographieDropDownThird> {
                               ],
                             ),
                           ),
-                          ExpandedSection(
+                          ExpandedSectionTopographie(
                             expand: isStrechedDropDown,
                             height: 100,
                             child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
                               color: Colors.white70,
-                              child: ListView(
-                                padding: EdgeInsets.all(0),
-                                shrinkWrap: true,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   //controller: scrollController2,
                                   Row(

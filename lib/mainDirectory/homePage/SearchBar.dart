@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
-// import 'package:project/mainDirectory/homePage/SliderClassListingPage.dart';
-import 'package:project/mainDirectory/homePage/navbar.dart';
+import 'package:project/mainDirectory/AppBar.dart';
+import 'package:project/mainDirectory/homePage/SliderClassListingPage.dart';
 import 'package:project/mainDirectory/tools/my_flutter_app_icons.dart';
-
 import '../tools/borderradius.dart';
 
 class SearchBarClass extends StatefulWidget {
@@ -75,194 +73,179 @@ class ResultPage extends StatefulWidget {
 class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context1) {
-    return Scaffold(
-      endDrawer: NavDrawer(),
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                Color(0xff94e9ff),
-                Color(0xff4da9ef),
-              ])),
-        ),
-        title: new Image.asset(
-          'images/logo.png',
-          cacheWidth: 50,
-          cacheHeight: 50,
-          width: 50.0,
-          height: 50.0,
-        ),
-      ),
-      body: ListView(
-        children: [
-          new Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: new AssetImage('images/bg1.png'),
-                fit: BoxFit.cover,
-                alignment: Alignment.bottomCenter,
-              ),
-            ),
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    new TextButton(
-                        onPressed: () => Navigator.pop(context1),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            new Icon(Icons.arrow_left),
-                            new Text(
-                              'back',
-                              textAlign: TextAlign.start,
-                            ),
-                          ],
-                        )),
-                    new Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
-                    new Text("results for '${widget.search}'"),
-                  ],
-                ),
-                new InkWell(
-                  onTap: () {
-                    if (widget.search != ' ') {
-                      if (widget.search == 'Scuba') {
-                        var router1 = new MaterialPageRoute(
-                            builder: (BuildContext context) {
-                          return new ResultPageNotExtended();
-                        });
-                        Navigator.of(context).push(router1);
-                      } else if (widget.search == 'Diving') {
-                        var router2 = new MaterialPageRoute(
-                            builder: (BuildContext context) {
-                          return new ResultPageExtended();
-                        });
-                        Navigator.of(context).push(router2);
-                      }else {
-                        var router3 = new MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return new ResultPageNotExtended();
-                            });
-                        Navigator.of(context).push(router3);
-                      }
-                    }else if(widget.search == ' '){
-                      createAlertDialog(context);
-                      print('nothing');
-                    }
-                  },
-                  child: new Card(
-                    margin: EdgeInsets.all(20),
-                    color: Colors.grey.shade200,
-                    child: new Column(
-                      mainAxisSize: MainAxisSize.min,
-
-                      children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: new Text(
-                                'Nom 1',
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  color: Colors.blue.shade900,
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        new Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: new Image(
-                                image: AssetImage('images/icons/location.png'),
-                                width: 15,
-                                height: 15,
-                              ),
-                            ),
-                            new Text(
-                              'Amérique du N',
-                              style: TextStyle(
-                                color: Colors.blue.shade900,
-                                fontSize: 14,
-                              ),
-                            ),
-                            Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 20)),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: new Image(
-                                image: AssetImage('images/icons/depth.png'),
-                                width: 15,
-                                height: 15,
-                              ),
-                            ),
-                            new Text(
-                              'Depth',
-                              style: TextStyle(
-                                color: Colors.blue.shade900,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                        new Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 2.0),
-                              child: new Image(
-                                image: AssetImage(
-                                    'images/icons/courant_inexistan.png'),
-                                width: 70,
-                                height: 70,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 2.0),
-                              child: new Image(
-                                image: AssetImage('images/icons/en_bateau.png'),
-                                width: 70,
-                                height: 70,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 2.0),
-                              child: new Image(
-                                image: AssetImage('images/icons/profondeur.png'),
-                                width: 70,
-                                height: 70,
-                              ),
-                            ),
-                          ],
-                        ),
-                        new Container(
-                          margin: EdgeInsets.all(8.0),
-                          height: 212,
-                          // width: double.infinity,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: ResizeImage(AssetImage('images/slider1.png'),
-                                height: 212,),
-                              fit: BoxFit.fill,
-
-                            ),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                      ],
-                    ),
+    return MainScreen(
+      currentIndex: 0,
+      isSelectedHome: false,
+      isSelectedSecond: false,
+      isSelectedThird: false,
+      isSelectedFourth: false,
+      child: ListView(
+          children: [
+            new Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: new AssetImage('images/bg1.png'),
+                    fit: BoxFit.cover,
+                    alignment: Alignment.bottomCenter,
                   ),
                 ),
-              ],
-            )),
-    ]
+                child: new Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        new TextButton(
+                            onPressed: () => Navigator.pop(context1),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                new Icon(Icons.arrow_left),
+                                new Text(
+                                  'back',
+                                  textAlign: TextAlign.start,
+                                ),
+                              ],
+                            )),
+                        new Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
+                        new Text("results for '${widget.search}'"),
+                      ],
+                    ),
+                    new InkWell(
+                      onTap: () {
+                        if (widget.search != ' ') {
+                          if (widget.search == 'Scuba') {
+                            var router1 = new MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return new ResultPageNotExtended();
+                                });
+                            Navigator.of(context).push(router1);
+                          } else if (widget.search == 'Diving') {
+                            var router2 = new MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return new ResultPageExtended();
+                                });
+                            Navigator.of(context).push(router2);
+                          }else {
+                            var router3 = new MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return new ResultPageNotExtended();
+                                });
+                            Navigator.of(context).push(router3);
+                          }
+                        }else if(widget.search == ' '){
+                          createAlertDialog(context);
+                          print('nothing');
+                        }
+                      },
+                      child: new Card(
+                        margin: EdgeInsets.all(20),
+                        color: Colors.grey.shade200,
+                        child: new Column(
+                          mainAxisSize: MainAxisSize.min,
+
+                          children: [
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: new Text(
+                                    'Nom 1',
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      color: Colors.blue.shade900,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            new Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: new Image(
+                                    image: AssetImage('images/icons/location.png'),
+                                    width: 15,
+                                    height: 15,
+                                  ),
+                                ),
+                                new Text(
+                                  'Amérique du N',
+                                  style: TextStyle(
+                                    color: Colors.blue.shade900,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 20)),
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: new Image(
+                                    image: AssetImage('images/icons/depth.png'),
+                                    width: 15,
+                                    height: 15,
+                                  ),
+                                ),
+                                new Text(
+                                  'Depth',
+                                  style: TextStyle(
+                                    color: Colors.blue.shade900,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            new Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 2.0),
+                                  child: new Image(
+                                    image: AssetImage(
+                                        'images/icons/courant_inexistan.png'),
+                                    width: 70,
+                                    height: 70,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 2.0),
+                                  child: new Image(
+                                    image: AssetImage('images/icons/en_bateau.png'),
+                                    width: 70,
+                                    height: 70,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 2.0),
+                                  child: new Image(
+                                    image: AssetImage('images/icons/profondeur.png'),
+                                    width: 70,
+                                    height: 70,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            new Container(
+                              margin: EdgeInsets.all(8.0),
+                              height: 212,
+                              // width: double.infinity,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: ResizeImage(AssetImage('images/slider1.png'),
+                                    height: 212,),
+                                  fit: BoxFit.fill,
+
+                                ),
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          ]
       ),
     );
   }
@@ -293,28 +276,13 @@ class _ResultPageNotExtendedState extends State<ResultPageNotExtended> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawer: NavDrawer(),
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                Color(0xff94e9ff),
-                Color(0xff4da9ef),
-              ])),
-        ),
-        title: new Image.asset(
-          'images/logo.png',
-          cacheHeight: 50,
-          cacheWidth: 50,
-          width: 50.0,
-          height: 50.0,
-        ),
-      ),
-      body: new SafeArea(
+    return MainScreen(
+      currentIndex: 0,
+      isSelectedHome: false,
+      isSelectedSecond: false,
+      isSelectedThird: false,
+      isSelectedFourth: false,
+      child: new SafeArea(
         child: new ListView(
           children: [
             Stack(
@@ -365,7 +333,7 @@ class _ResultPageNotExtendedState extends State<ResultPageNotExtended> {
                 width: 120,
               ),
             ),
-            // SliderClassListingPage(),
+            SliderClassListingPage(),
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: Column(
@@ -421,7 +389,7 @@ class _ResultPageNotExtendedState extends State<ResultPageNotExtended> {
                         children: [
                           new Image(
                               image:
-                                  AssetImage('images/icons/temperature_11.png'),
+                              AssetImage('images/icons/temperature_11.png'),
                               height: 90,
                               width: 90),
                           new Text('température eau',
@@ -454,7 +422,7 @@ class _ResultPageNotExtendedState extends State<ResultPageNotExtended> {
                         children: [
                           new Image(
                               image:
-                                  AssetImage('images/icons/visibilite_0.png'),
+                              AssetImage('images/icons/visibilite_0.png'),
                               height: 90,
                               width: 90),
                           new Text('visibilité 0 à 10m',
@@ -599,36 +567,36 @@ class _ResultPageNotExtendedState extends State<ResultPageNotExtended> {
             ),
             new Center(
                 child: Padding(
-              padding: const EdgeInsets.only(bottom: 28.0),
-              child: new InkWell(
-                child: new Container(
-                  height: 90,
-                  decoration: new BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Color(0xff4da9ef),
-                          Color(0xff94e9ff),
-                        ]),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: new Icon(
-                      MyFlutterApp.heart,
-                      color: _isFavourite ? Colors.red : Colors.white,
-                      size: 50,
+                  padding: const EdgeInsets.only(bottom: 28.0),
+                  child: new InkWell(
+                    child: new Container(
+                      height: 90,
+                      decoration: new BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xff4da9ef),
+                              Color(0xff94e9ff),
+                            ]),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: new Icon(
+                          MyFlutterApp.heart,
+                          color: _isFavourite ? Colors.red : Colors.white,
+                          size: 50,
+                        ),
+                      ),
                     ),
+                    onTap: () {
+                      setState(() {
+                        _isFavourite = !_isFavourite;
+                      });
+                    },
                   ),
-                ),
-                onTap: () {
-                  setState(() {
-                    _isFavourite = !_isFavourite;
-                  });
-                },
-              ),
-            ))
+                ))
           ],
         ),
       ),
@@ -643,33 +611,19 @@ class ResultPageExtended extends StatefulWidget {
   _ResultPageExtendedState createState() => _ResultPageExtendedState();
 }
 
+
 class _ResultPageExtendedState extends State<ResultPageExtended> {
   bool _isFavourite = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      endDrawer: NavDrawer(),
-      appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                Color(0xff94e9ff),
-                Color(0xff4da9ef),
-              ])),
-        ),
-        title: new Image.asset(
-          'images/logo.png',
-          cacheHeight: 50,
-          cacheWidth: 50,
-          width: 50.0,
-          height: 50.0,
-        ),
-      ),
-      body: new SafeArea(
+    return MainScreen(
+      currentIndex: 0,
+      isSelectedHome: false,
+      isSelectedSecond: false,
+      isSelectedThird: false,
+      isSelectedFourth: false,
+      child: new SafeArea(
         child: new ListView(
           children: [
             Stack(
@@ -722,7 +676,7 @@ class _ResultPageExtendedState extends State<ResultPageExtended> {
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+              const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
               child: new Container(
                   decoration: new BoxDecoration(
                     borderRadius: BorderRadius.circular(30.0),
@@ -738,18 +692,18 @@ class _ResultPageExtendedState extends State<ResultPageExtended> {
                               ))),
                       Center(
                           child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 28.0),
-                        child: new Image(
-                          image: AssetImage('images/icons/location.png'),
-                          height: 90,
-                          fit: BoxFit.cover,
-                          color: Colors.white,
-                        ),
-                      )),
+                            padding: const EdgeInsets.symmetric(vertical: 28.0),
+                            child: new Image(
+                              image: AssetImage('images/icons/location.png'),
+                              height: 90,
+                              fit: BoxFit.cover,
+                              color: Colors.white,
+                            ),
+                          )),
                     ],
                   )),
             ),
-            // SliderClassListingPage(),
+            SliderClassListingPage(),
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: Column(
@@ -805,7 +759,7 @@ class _ResultPageExtendedState extends State<ResultPageExtended> {
                         children: [
                           new Image(
                               image:
-                                  AssetImage('images/icons/temperature_11.png'),
+                              AssetImage('images/icons/temperature_11.png'),
                               height: 90,
                               width: 90),
                           new Text('température eau',
@@ -838,7 +792,7 @@ class _ResultPageExtendedState extends State<ResultPageExtended> {
                         children: [
                           new Image(
                               image:
-                                  AssetImage('images/icons/visibilite_0.png'),
+                              AssetImage('images/icons/visibilite_0.png'),
                               height: 90,
                               width: 90),
                           new Text('visibilité 0 à 10m',
@@ -888,7 +842,7 @@ class _ResultPageExtendedState extends State<ResultPageExtended> {
               padding: const EdgeInsets.fromLTRB(25, 20, 25, 10),
               child: ListTile(
                 title: new Container(
-                  alignment: Alignment.centerLeft,
+                    alignment: Alignment.centerLeft,
                     height: 50,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -988,36 +942,36 @@ class _ResultPageExtendedState extends State<ResultPageExtended> {
             ),
             new Center(
                 child: Padding(
-              padding: const EdgeInsets.only(bottom: 28.0),
-              child: new InkWell(
-                child: new Container(
-                  height: 90,
-                  decoration: new BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Color(0xff4da9ef),
-                          Color(0xff94e9ff),
-                        ]),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: new Icon(
-                      MyFlutterApp.heart,
-                      color: _isFavourite ? Colors.red : Colors.white,
-                      size: 50,
+                  padding: const EdgeInsets.only(bottom: 28.0),
+                  child: new InkWell(
+                    child: new Container(
+                      height: 90,
+                      decoration: new BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xff4da9ef),
+                              Color(0xff94e9ff),
+                            ]),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: new Icon(
+                          MyFlutterApp.heart,
+                          color: _isFavourite ? Colors.red : Colors.white,
+                          size: 50,
+                        ),
+                      ),
                     ),
+                    onTap: () {
+                      setState(() {
+                        _isFavourite = !_isFavourite;
+                      });
+                    },
                   ),
-                ),
-                onTap: () {
-                  setState(() {
-                    _isFavourite = !_isFavourite;
-                  });
-                },
-              ),
-            ))
+                ))
           ],
         ),
       ),

@@ -169,11 +169,12 @@ class _PaysDropDownState extends State<PaysDropDown> {
                                               fontSize: 12,
                                               color: Colors.black,
                                             ),
-                                            onChanged: (String newValue) {
+                                            onChanged: groupValuePay == 0 ?
+                                                (String newValue) {
                                               setState(() {
                                                 ddPaysAsia = newValue;
                                               });
-                                            },
+                                            }: null,
                                             items: [
                                               'select',
                                               'Thailande',
@@ -229,11 +230,12 @@ class _PaysDropDownState extends State<PaysDropDown> {
                                               fontSize: 12,
                                               color: Colors.black,
                                             ),
-                                            onChanged: (String newValue) {
+                                            onChanged: groupValuePay == 1 ?
+                                                (String newValue) {
                                               setState(() {
-                                                ddPaysEurope = newValue;
+                                                ddPaysAsia = newValue;
                                               });
-                                            },
+                                            }: null,
                                             items: [
                                               'select',
                                               'Turquie',
@@ -283,11 +285,12 @@ class _PaysDropDownState extends State<PaysDropDown> {
                                               fontSize: 12,
                                               color: Colors.black,
                                             ),
-                                            onChanged: (String newValue) {
+                                            onChanged: groupValuePay == 2 ?
+                                                (String newValue) {
                                               setState(() {
-                                                ddPaysNAmerica = newValue;
+                                                ddPaysAsia = newValue;
                                               });
-                                            },
+                                            }: null,
                                             items: [
                                               'select',
                                               'Canada',
@@ -336,11 +339,12 @@ class _PaysDropDownState extends State<PaysDropDown> {
                                               fontSize: 12,
                                               color: Colors.black,
                                             ),
-                                            onChanged: (String newValue) {
+                                            onChanged: groupValuePay == 3 ?
+                                                (String newValue) {
                                               setState(() {
-                                                ddPaysSAmerica = newValue;
+                                                ddPaysAsia = newValue;
                                               });
-                                            },
+                                            }: null,
                                             items: [
                                               'select',
                                               'Honduras',
@@ -392,11 +396,12 @@ class _PaysDropDownState extends State<PaysDropDown> {
                                               fontSize: 12,
                                               color: Colors.black,
                                             ),
-                                            onChanged: (String newValue) {
+                                            onChanged: groupValuePay == 4 ?
+                                                (String newValue) {
                                               setState(() {
-                                                ddPaysOceania = newValue;
+                                                ddPaysAsia = newValue;
                                               });
-                                            },
+                                            }: null,
                                             items: [
                                               'select',
                                               'Australie',
@@ -443,11 +448,12 @@ class _PaysDropDownState extends State<PaysDropDown> {
                                               fontSize: 12,
                                               color: Colors.black,
                                             ),
-                                            onChanged: (String newValue) {
+                                            onChanged: groupValuePay == 5 ?
+                                                (String newValue) {
                                               setState(() {
-                                                ddPaysAfrica = newValue;
+                                                ddPaysAsia = newValue;
                                               });
-                                            },
+                                            }: null,
                                             items: [
                                               'select',
                                               'Egypte',

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/mainDirectory/tools/EspandedPays.dart';
-import 'package:project/mainDirectory/tools/ExpandedListThreeRows.dart';
-import 'package:project/mainDirectory/tools/ExpandedTopographie.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
+
+import '../enregisterInformations.dart';
 
 
 class TypeIncontournable extends StatefulWidget {
@@ -13,12 +13,27 @@ class TypeIncontournable extends StatefulWidget {
 }
 
 class _TypeIncontournableState extends State<TypeIncontournable> {
+  final informations = Informations();
   bool isStrechedType = false;
   int groupValue1;
 
   void handleGroupValue1(int value) {
     setState(() {
       groupValue1 = value;
+      if(groupValue1 == 0){
+        informations.typeInc = 'bateau';
+      }else if (groupValue1 == 1){
+        informations.typeInc = 'rive';
+      }else if (groupValue1 == 2){
+        informations.typeInc = 'epave';
+      }else if (groupValue1 == 3){
+        informations.typeInc = 'glace';
+      }else if (groupValue1 == 4){
+        informations.typeInc = 'derive';
+      }else {
+        informations.typeInc = null;
+      }
+      print(informations.typeInc);
     });
   }
   @override

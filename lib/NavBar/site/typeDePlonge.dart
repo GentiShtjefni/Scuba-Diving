@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project/mainDirectory/tools/ExpandedListACocher.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
+import '../enregisterInformations.dart';
+
 class TypeDePlonge extends StatefulWidget {
   const TypeDePlonge({Key key}) : super(key: key);
 
@@ -10,13 +12,34 @@ class TypeDePlonge extends StatefulWidget {
 }
 
 class _TypeDePlongeState extends State<TypeDePlonge> {
-
+  TextEditingController _autresController = TextEditingController();
+  final informations = Informations();
   bool isStrechedACocher = false;
   int groupValue2;
 
   void handleGroupValue2(int value) {
     setState(() {
       groupValue2 = value;
+      if(groupValue2 == 0){
+        informations.typDePlonge = 'nuit';
+      }else if (groupValue2 == 1){
+        informations.typDePlonge = 'profondeur min 30m';
+      }else if (groupValue2 == 2){
+        informations.typDePlonge = 'nitrox';
+      }else if (groupValue2 == 3){
+        informations.typDePlonge = 'en bateau';
+      }else if (groupValue2 == 4){
+        informations.typDePlonge = 'do board';
+      }else if (groupValue2 == 5){
+        informations.typDePlonge = 'sous glace';
+      }else if (groupValue2 == 6){
+        informations.typDePlonge = 'eau douce';
+      }else if (groupValue2 == 7){
+        informations.typDePlonge = _autresController.text;
+      }else {
+        informations.typDePlonge = null;
+      }
+      print(informations.typDePlonge);
     });
   }
   @override
@@ -275,7 +298,9 @@ class _TypeDePlongeState extends State<TypeDePlonge> {
                                                       TextStyle(color:Colors.blue.shade900)),
                                                   Expanded(
                                                       child:
-                                                      new TextField()),
+                                                      new TextField(
+                                                        controller: _autresController,
+                                                      )),
                                                 ],
                                               ),
                                             ],

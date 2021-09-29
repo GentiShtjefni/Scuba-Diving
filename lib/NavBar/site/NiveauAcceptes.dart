@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project/mainDirectory/tools/ExpandedListThreeRows.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
+import '../enregisterInformations.dart';
+
 
 class NiveauAcceptes extends StatefulWidget {
   const NiveauAcceptes({Key key}) : super(key: key);
@@ -11,12 +13,23 @@ class NiveauAcceptes extends StatefulWidget {
 }
 
 class _NiveauAcceptesState extends State<NiveauAcceptes> {
+  final informations = Informations();
   bool isStrechedNivAcc = false;
   int groupValueNiveauAcc;
 
   void handleGroupValueNiveauAcc(int value) {
     setState(() {
       groupValueNiveauAcc = value;
+      if(groupValueNiveauAcc == 0){
+        informations.niveauAcceptes = 'snorkel';
+      }else if (groupValueNiveauAcc == 1){
+        informations.niveauAcceptes = 'debutant';
+      }else if (groupValueNiveauAcc == 2){
+        informations.niveauAcceptes = 'plongeurs experimentes';
+      }else {
+        informations.niveauAcceptes = null;
+      }
+      print(informations.niveauAcceptes);
     });
   }
   @override

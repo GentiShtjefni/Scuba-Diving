@@ -115,52 +115,52 @@ class _AccesibilitaState extends State<Accesibilita> {
                           ExpandedSection(
                             expand: isStrechedDropDown,
                             height: 100,
-                            child: Container(
-                              color: Colors.white70,
-                              child: ListView(
-                                padding: EdgeInsets.all(0),
-                                shrinkWrap: true,
-                                children: [
-                                  //controller: scrollController2,
-                                  Row(
-                                    children: [
-                                      Radio(
-                                          value: 0,
-                                          groupValue: groupValue,
-                                          onChanged: handleGroupValue),
-                                      new Text('en bateau',
-                                          style: _textStyle()),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Radio(
-                                          value: 1,
-                                          groupValue: groupValue,
-                                          onChanged: handleGroupValue),
-                                      new Text('plage', style: _textStyle()),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Radio(
-                                          value: 2,
-                                          groupValue: groupValue,
-                                          onChanged: handleGroupValue),
-                                      new Text('à pieds', style: _textStyle()),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Radio(
-                                          value: 6,
-                                          groupValue: groupValue,
-                                          onChanged: handleGroupValue),
-                                      new Text('autres:', style: _textStyle()),
-                                      Expanded(child: new TextField()),
-                                    ],
-                                  ),
-                                ],
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Container(
+                                color: Colors.white70,
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Radio(
+                                            value: 0,
+                                            groupValue: groupValue,
+                                            onChanged: handleGroupValue),
+                                        new Text('en bateau',
+                                            style: _textStyle()),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Radio(
+                                            value: 1,
+                                            groupValue: groupValue,
+                                            onChanged: handleGroupValue),
+                                        new Text('plage', style: _textStyle()),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Radio(
+                                            value: 2,
+                                            groupValue: groupValue,
+                                            onChanged: handleGroupValue),
+                                        new Text('à pieds', style: _textStyle()),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Radio(
+                                            value: 6,
+                                            groupValue: groupValue,
+                                            onChanged: handleGroupValue),
+                                        new Text('autres:', style: _textStyle()),
+                                        Expanded(child: new TextField()),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),

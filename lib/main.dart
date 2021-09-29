@@ -137,7 +137,7 @@ class HomeScreenLoggedInPro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Project',
+      title: 'MyDiveToGo',
       debugShowCheckedModeBanner: false,
       // home: new Homepage(),
       initialRoute: '/',
@@ -168,7 +168,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Project',
+      title: 'MyDiveToGo',
       debugShowCheckedModeBanner: false,
       // home: new Homepage(),
       initialRoute: '/',
@@ -199,7 +199,7 @@ class HomeScreenLoggedInClient extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Project',
+      title: 'MyDiveToGo',
       debugShowCheckedModeBanner: false,
       // home: new Homepage(),
       initialRoute: '/',

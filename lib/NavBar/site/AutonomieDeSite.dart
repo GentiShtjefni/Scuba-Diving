@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project/mainDirectory/tools/ExpandedListThreeRows.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
+import '../enregisterInformations.dart';
+
 
 class AutonomieDeSite extends StatefulWidget {
   const AutonomieDeSite({Key key}) : super(key: key);
@@ -13,10 +15,21 @@ class AutonomieDeSite extends StatefulWidget {
 class _AutonomieDeSiteState extends State<AutonomieDeSite> {
   bool isStrechedAutonomie = false;
   int groupValueAutonomie;
+  final informations = Informations();
 
   void handleGroupValueAutonomie(int value) {
     setState(() {
       groupValueAutonomie = value;
+      if (groupValueAutonomie == 0){
+        informations.autonomie = 'seul';
+      }else if(groupValueAutonomie == 1){
+        informations.autonomie = 'guidee';
+      }else if(groupValueAutonomie == 2){
+        informations.autonomie = 'autre';
+      }else {
+        informations.autonomie = null;
+      }
+      print(informations.autonomie);
     });
   }
   @override

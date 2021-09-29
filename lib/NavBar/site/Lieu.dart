@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/NavBar/enregisterInformations.dart';
 import 'package:project/mainDirectory/tools/EspandedPays.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
@@ -12,6 +13,7 @@ class Lieu extends StatefulWidget {
 }
 
 class _LieuState extends State<Lieu> {
+  final informations = Informations();
   bool isStrechedPay = false;
   String ddPaysAsia = 'select';
   String ddPaysEurope = 'select';
@@ -23,6 +25,9 @@ class _LieuState extends State<Lieu> {
   void handleGroupValue0(int value1) {
     setState(() {
       groupValuePay = value1;
+
+
+
     });
   }
   TextStyle _textStyle() {
@@ -149,13 +154,14 @@ class _LieuState extends State<Lieu> {
                                             ),
                                             new Expanded(
                                               child: Text('Asia',
-                                                  style: _textStyle()),
+                                                  style: groupValuePay == 0 ? _textStyle(): null,),
                                             ),
                                             new Padding(
                                               padding:
                                               const EdgeInsets.only(
                                                   right: 5.0),
                                               child: DropdownButton(
+
                                                 dropdownColor:
                                                 Colors.grey.shade300,
                                                 value: ddPaysAsia,
@@ -173,6 +179,12 @@ class _LieuState extends State<Lieu> {
                                                   setState(() {
                                                     ddPaysAsia =
                                                         newValue;
+                                                    if(ddPaysAsia != 'select'){
+                                                      informations.lieu = ddPaysAsia;
+                                                    }else{
+                                                      informations.lieu = null;
+                                                    }
+                                                    print (informations.lieu);
                                                   });
                                                 }
                                                     : null,
@@ -221,7 +233,8 @@ class _LieuState extends State<Lieu> {
                                             ),
                                             new Expanded(
                                               child: Text('Europe',
-                                                  style: _textStyle()),
+                                                  style: groupValuePay == 0 ? _textStyle(): null
+                                              ),
                                             ),
                                             new Padding(
                                               padding:
@@ -245,6 +258,12 @@ class _LieuState extends State<Lieu> {
                                                   setState(() {
                                                     ddPaysEurope =
                                                         newValue;
+                                                    if(ddPaysEurope != 'select'){
+                                                      informations.lieu = ddPaysEurope;
+                                                    }else{
+                                                      informations.lieu = null;
+                                                    }
+                                                    print (informations.lieu);
                                                   });
                                                 }
                                                     : null,
@@ -311,6 +330,12 @@ class _LieuState extends State<Lieu> {
                                                   setState(() {
                                                     ddPaysNAmerica =
                                                         newValue;
+                                                    if(ddPaysNAmerica != 'select'){
+                                                      informations.lieu = ddPaysNAmerica;
+                                                    }else{
+                                                      informations.lieu = null;
+                                                    }
+                                                    print (informations.lieu);
                                                   });
                                                 }
                                                     : null,
@@ -373,6 +398,13 @@ class _LieuState extends State<Lieu> {
                                                 setState(() {
                                                   ddPaysSAmerica =
                                                       newValue;
+                                                  if(ddPaysSAmerica != 'select'){
+                                                    informations.lieu = ddPaysSAmerica;
+                                                  }else{
+                                                    informations.lieu = null;
+                                                  }
+                                                  print (informations.lieu);
+
                                                 });
                                               }
                                                   : null,
@@ -439,6 +471,12 @@ class _LieuState extends State<Lieu> {
                                                   setState(() {
                                                     ddPaysOceania =
                                                         newValue;
+                                                    if(ddPaysOceania != 'select'){
+                                                      informations.lieu = ddPaysOceania;
+                                                    }else{
+                                                      informations.lieu = null;
+                                                    }
+                                                    print (informations.lieu);
                                                   });
                                                 }
                                                     : null,
@@ -502,6 +540,10 @@ class _LieuState extends State<Lieu> {
                                                   setState(() {
                                                     ddPaysAfrica =
                                                         newValue;
+                                                    if(ddPaysAfrica != 'select'){
+                                                      informations.lieu = ddPaysAfrica;
+                                                    }
+                                                    print (informations.lieu);
                                                   });
                                                 }
                                                     : null,

@@ -19,14 +19,26 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return MainScreen(
       child: new ListView(
-        padding: const EdgeInsets.all(15.0),
+        // padding: const EdgeInsets.all(15.0),
         children: [
-          new BodyClass(),
-          new CategoriesClass(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new BodyClass(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new CategoriesClass(),
+          ),
           Padding(padding: const EdgeInsets.all(15.0)),
-          new DropDown1(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new DropDown1(),
+          ),
           Padding(padding: const EdgeInsets.all(15.0)),
-          new SearchBarClass(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new SearchBarClass(),
+          ),
           Padding(padding: const EdgeInsets.all(15.0)),
           new SliderClass(),
           Padding(padding: const EdgeInsets.all(7)),

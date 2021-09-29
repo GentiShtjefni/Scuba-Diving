@@ -4,12 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project/firbase_auth.dart';
 import 'package:project/mainDirectory/AppBar.dart';
+import 'package:project/mainDirectory/fourthTab/ResetPassword.dart';
 import 'package:project/mainDirectory/tools/my_flutter_app_icons.dart';
 import '../tools/borderradius.dart';
 import '../tools/loading.dart';
 
 class FourthTab extends StatefulWidget {
-  const FourthTab({Key key}) : super(key: key);
+  FourthTab({Key key}) : super(key: key);
 
   @override
   _FourthTabState createState() => _FourthTabState();
@@ -17,7 +18,8 @@ class FourthTab extends StatefulWidget {
 
 class _FourthTabState extends State<FourthTab> {
 
-
+  final _formKey = GlobalKey<FormState>();
+  String errorMessage;
 
   String _email = '';
   String _emailRegister = '';
@@ -1802,7 +1804,7 @@ class _FourthTabState extends State<FourthTab> {
                       alignment: Alignment.bottomCenter,
                     ),
                   ),
-                  child: Column(
+                  child: ListView(
                     children: [
                       new Container(
                         child: Center(
@@ -1849,82 +1851,131 @@ class _FourthTabState extends State<FourthTab> {
                       ),
                       new Padding(
                         padding: EdgeInsets.only(top: 40),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            new Padding(
-                              padding: EdgeInsets.fromLTRB(0, 45, 130, 3),
-                              child: new Text(
-                                'Tapez votre mot de passe',
-                                style: new TextStyle(
-                                  color: Colors.blue.shade900,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 5.0, horizontal: 0.0),
-                              child: new ListTile(
-                                title: Material(
-                                  elevation: 5.0,
-                                  borderRadius: BorderRadius.circular(30),
-                                  child: new TextField(
-                                    textAlign: TextAlign.start,
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: '  ADRESSE MAIL',
-                                      hintStyle: TextStyle(
-                                        fontSize: 17,
-                                        color: Colors.blue.shade300,
-                                      ),
-                                    ),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              new Padding(
+                                padding: EdgeInsets.fromLTRB(0, 45, 130, 3),
+                                child: new Text(
+                                  'Tapez votre mot de passe',
+                                  style: new TextStyle(
+                                    color: Colors.blue.shade900,
+                                    fontSize: 14,
                                   ),
                                 ),
                               ),
-                            ),
-                            new Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 25.0, vertical: 20.0),
-                              child: ListTile(
-                                title: new Container(
-                                  height: 55,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: GradientBorder.uniform(
-                                        width: 3.0,
-                                        gradient: LinearGradient(
-                                            colors: <Color>[
-                                              Color(0xff59a5da),
-                                              Color(0xff60af6c)
-                                            ],
-                                            stops: [
-                                              0.3,
-                                              0.5
-                                            ])),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 5.0, horizontal: 0.0),
+                                child: new ListTile(
+                                  title: Material(
+                                    elevation: 5.0,
                                     borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  child: new Center(
-                                    child: new Text(
-                                      'SE CONNECTER',
-                                      style: new TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w900,
-                                        decorationThickness: 3.0,
-                                        color: Colors.blue.shade900,
+                                    child: new TextFormField(
+                                         onSaved: (newEmail){
+                                        _emailResetPassword = newEmail;
+                                      },
+                                      textAlign: TextAlign.start,
+                                      decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.only(left:8),
+                                        border: InputBorder.none,
+                                        hintText: '  ADRESSE MAIL',
+                                        hintStyle: TextStyle(
+                                          fontSize: 17,
+                                          color: Colors.blue.shade300,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                                onTap: () {
-                                  setState(() {
-                                    _currentIndex = 0;
-                                  });
-                                },
                               ),
-                            ),
-                          ],
+                              new Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 25.0, vertical: 20.0),
+                                child: ListTile(
+                                  title: new Container(
+                                    height: 55,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      border: GradientBorder.uniform(
+                                          width: 3.0,
+                                          gradient: LinearGradient(
+                                              colors: <Color>[
+                                                Color(0xff59a5da),
+                                                Color(0xff60af6c)
+                                              ],
+                                              stops: [
+                                                0.3,
+                                                0.5
+                                              ])),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: new Center(
+                                      child: new Text(
+                                        'réinitialiser',
+                                        style: new TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w900,
+                                          decorationThickness: 3.0,
+                                          color: Colors.blue.shade900,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    _passwordReset();
+                                    print(_emailResetPassword);
+                                  },
+                                ),
+                              ),
+                              if(errorMessage!= null)
+                              Center(child: Text(errorMessage, style:TextStyle(color:Colors.red, fontWeight: FontWeight.bold))),
+                              new Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 25.0, vertical: 20.0),
+                                child: ListTile(
+                                  title: new Container(
+                                    height: 55,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      border: GradientBorder.uniform(
+                                          width: 3.0,
+                                          gradient: LinearGradient(
+                                              colors: <Color>[
+                                                Color(0xff59a5da),
+                                                Color(0xff60af6c)
+                                              ],
+                                              stops: [
+                                                0.3,
+                                                0.5
+                                              ])),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: new Center(
+                                      child: new Text(
+                                        'SE CONNECTER',
+                                        style: new TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w900,
+                                          decorationThickness: 3.0,
+                                          color: Colors.blue.shade900,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      _currentIndex = 0;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -1939,4 +1990,29 @@ class _FourthTabState extends State<FourthTab> {
       isSelectedFourth: true,
     );
   }
+  String _emailResetPassword;
+  Future _passwordReset() async {
+    try {
+      _formKey.currentState.save();
+      await _authResetPassword.sendPasswordResetEmail(email: _emailResetPassword);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return ResetPassword(message: 'Veuillez ouvrir votre email pour réinitialiser votre mot de passe.',);
+        }),
+      );
+    } on Exception catch (e) {
+      setState(() {
+        if(e.toString() == '[firebase_auth/invalid-email] The email address is badly formatted.'){
+          errorMessage = 'Email adress is not correct. Please write a correct one!';
+        }else if(e.toString() == '[firebase_auth/user-not-found] There is no user record corresponding to this identifier. The user may have been deleted.'){
+          errorMessage = 'This email is not linked to an account. Please register!';
+        }else {
+          errorMessage = 'There was a problem. Please check your internet connection and restart the app.';
+        }
+        print(e.toString());
+      });
+    }
+  }
+  final _authResetPassword = FirebaseAuth.instance;
 }

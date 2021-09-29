@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project/mainDirectory/tools/ExpandedVm.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
+import '../enregisterInformations.dart';
+
 
 class VmDeSite extends StatefulWidget {
   const VmDeSite({Key key}) : super(key: key);
@@ -11,6 +13,7 @@ class VmDeSite extends StatefulWidget {
 }
 
 class _VmDeSiteState extends State<VmDeSite> {
+  final informations = Informations();
   bool isStrechedVieMarine = false;
   String ddVM1 = 'select';
   String ddVM2 = 'select';
@@ -167,6 +170,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM1 = newValue;
+                                                    if (ddVM1 != 'select'){
+                                                      informations.requin = ddVM1;
+                                                    }else {
+                                                      informations.requin = null;
+                                                    }
+                                                    print(informations.requin);
                                                   });
                                                 },
                                                 items: [
@@ -214,6 +223,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM2 = newValue;
+                                                    if (ddVM2 != 'select'){
+                                                      informations.mammifere = ddVM2;
+                                                    }else {
+                                                      informations.mammifere = null;
+                                                    }
+                                                    print(informations.mammifere);
                                                   });
                                                 },
                                                 items: [
@@ -260,6 +275,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM3 = newValue;
+                                                    if (ddVM3 != 'select'){
+                                                      informations.reptile = ddVM3;
+                                                    }else {
+                                                      informations.reptile = null;
+                                                    }
+                                                    print(informations.reptile);
                                                   });
                                                 },
                                                 items: [
@@ -306,6 +327,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM4 = newValue;
+                                                    if (ddVM4 != 'select'){
+                                                      informations.crustace = ddVM4;
+                                                    }else {
+                                                      informations.crustace = null;
+                                                    }
+                                                    print(informations.crustace);
                                                   });
                                                 },
                                                 items: [
@@ -352,6 +379,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM5 = newValue;
+                                                    if (ddVM5 != 'select'){
+                                                      informations.raie = ddVM5;
+                                                    }else {
+                                                      informations.raie = null;
+                                                    }
+                                                    print(informations.raie);
                                                   });
                                                 },
                                                 items: [
@@ -398,6 +431,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM6 = newValue;
+                                                    if (ddVM6 != 'select'){
+                                                      informations.limace = ddVM6;
+                                                    }else {
+                                                      informations.limace = null;
+                                                    }
+                                                    print(informations.limace);
                                                   });
                                                 },
                                                 items: [
@@ -452,6 +491,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM7 = newValue;
+                                                    if (ddVM7 != 'select'){
+                                                      informations.cephalopode = ddVM7;
+                                                    }else {
+                                                      informations.cephalopode = null;
+                                                    }
+                                                    print(informations.cephalopode);
                                                   });
                                                 },
                                                 items: [
@@ -506,6 +551,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM8 = newValue;
+                                                    if (ddVM8 != 'select'){
+                                                      informations.corail = ddVM8;
+                                                    }else {
+                                                      informations.corail = null;
+                                                    }
+                                                    print(informations.corail);
                                                   });
                                                 },
                                                 items: [
@@ -552,6 +603,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM9 = newValue;
+                                                    if (ddVM9 != 'select'){
+                                                      informations.poissonPelagique = ddVM9;
+                                                    }else {
+                                                      informations.poissonPelagique = null;
+                                                    }
+                                                    print(informations.poissonPelagique);
                                                   });
                                                 },
                                                 items: [
@@ -598,6 +655,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM10 = newValue;
+                                                    if (ddVM10 != 'select'){
+                                                      informations.poissonDeRecif = ddVM10;
+                                                    }else {
+                                                      informations.poissonDeRecif = null;
+                                                    }
+                                                    print(informations.poissonDeRecif);
                                                   });
                                                 },
                                                 items: [
@@ -644,6 +707,12 @@ class _VmDeSiteState extends State<VmDeSite> {
                                                 onChanged: (String newValue) {
                                                   setState(() {
                                                     ddVM11 = newValue;
+                                                    if (ddVM11 != 'select'){
+                                                      informations.poissonDeFond = ddVM11;
+                                                    }else {
+                                                      informations.poissonDeFond = null;
+                                                    }
+                                                    print(informations.poissonDeFond);
                                                   });
                                                 },
                                                 items: [

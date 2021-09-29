@@ -67,22 +67,16 @@ class FirebaseService {
   final CollectionReference placesCollection = FirebaseFirestore.instance.collection('places');
 
   Future registerPlace ({
-  String nom,
-    String lieu,
-    String type,
-    String niveau,
-    String activities,
-    String periode,
-    String viemarine
+  double lon,
+    double lat,
+    String name,
+    String address,
   }) async {
     return await placesCollection.add({
-      'nom': nom,
-      'lieu': lieu,
-      'type de plonge incontournable': type,
-      'niveau acceptes': niveau,
-      'activites proposes': activities,
-      'periode pour y venir': periode,
-      'Vie Marine': viemarine,
+      'name': name,
+      'lat': lat,
+      'lon' : lon,
+      'address': address
     });
   }
 

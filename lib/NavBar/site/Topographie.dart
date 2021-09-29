@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project/mainDirectory/tools/ExpandedListAnimationFourRows.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
+import '../enregisterInformations.dart';
+
 class TopographieDeSite extends StatefulWidget {
   const TopographieDeSite({Key key}) : super(key: key);
 
@@ -10,12 +12,32 @@ class TopographieDeSite extends StatefulWidget {
 }
 
 class _TopographieDeSiteState extends State<TopographieDeSite> {
+  final informations = Informations();
+  TextEditingController _autresController = TextEditingController();
   bool isStrechedTopographie = false;
   int groupValue3;
 
   void handleGroupValue3(int value) {
     setState(() {
       groupValue3 = value;
+      if(groupValue3 == 0){
+        informations.topographie = 'epave';
+      }else if (groupValue3 == 1){
+        informations.topographie = 'tombant';
+      }else if (groupValue3 == 2){
+        informations.topographie = 'recif';
+      }else if (groupValue3 == 3){
+        informations.topographie = 'sable/mangrove';
+      }else if (groupValue3 == 4){
+        informations.topographie = 'grotte';
+      }else if (groupValue3 == 5){
+        informations.topographie = 'volcanique';
+      }else if (groupValue3 == 6){
+        informations.topographie = _autresController.text;
+      }else {
+        informations.topographie = null;
+      }
+      print(informations.topographie);
     });
   }
   @override
@@ -247,7 +269,7 @@ class _TopographieDeSiteState extends State<TopographieDeSite> {
                                               Row(
                                                 children: [
                                                   Radio(
-                                                      value: 5,
+                                                      value: 6,
                                                       groupValue:
                                                       groupValue3,
                                                       onChanged:
@@ -258,7 +280,9 @@ class _TopographieDeSiteState extends State<TopographieDeSite> {
                                                       TextStyle(color: Colors.blue.shade900)),
                                                   Expanded(
                                                       child:
-                                                      new TextField()),
+                                                      new TextField(
+                                                        controller: _autresController,
+                                                      )),
                                                 ],
                                               ),
                                             ],

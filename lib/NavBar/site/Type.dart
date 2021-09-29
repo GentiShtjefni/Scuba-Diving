@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project/mainDirectory/tools/ExpandedListThreeRows.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
+import '../enregisterInformations.dart';
+
 
 class TypeDeSite extends StatefulWidget {
   const TypeDeSite({Key key}) : super(key: key);
@@ -11,12 +13,23 @@ class TypeDeSite extends StatefulWidget {
 }
 
 class _TypeDeSiteState extends State<TypeDeSite> {
+  final informations = Informations();
   bool isStrechedType = false;
   int groupValue1;
 
   void handleGroupValue1(int value) {
     setState(() {
       groupValue1 = value;
+      if(groupValue1== 0){
+        informations.type = 'plonge';
+      }else if (groupValue1 == 1){
+        informations.type = 'snorkeling';
+      }else if (groupValue1 == 2){
+        informations.type = 'centre';
+      }else {
+        informations.type = null;
+      }
+      print(informations.type);
     });
   }
 

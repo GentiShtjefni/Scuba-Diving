@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 import 'package:project/mainDirectory/tools/ExpandedNiveau2.dart';
 
+import '../enregisterInformations.dart';
+
 
 
 class NiveauRequis extends StatefulWidget {
@@ -12,12 +14,25 @@ class NiveauRequis extends StatefulWidget {
 }
 
 class _NiveauRequisState extends State<NiveauRequis> {
+  final informations = Informations();
   bool isStrechedDropDown = false;
   int groupValue;
 
   void handleGroupValue(int value) {
     setState(() {
       groupValue = value;
+      if(groupValue == 0){
+        informations.niveauRequis = 'debutant';
+      }else if (groupValue == 1){
+        informations.niveauRequis = 'open water(niveau 1)';
+      }else if (groupValue == 2){
+        informations.niveauRequis = 'avance(niveau2)';
+      }else if (groupValue == 3){
+        informations.niveauRequis = 'plus';
+      }else {
+        informations.niveauRequis = null;
+      }
+      print(informations.niveauRequis);
     });
   }
   TextStyle _textStyle() {

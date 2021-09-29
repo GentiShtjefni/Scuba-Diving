@@ -234,6 +234,38 @@ class _MeteoState extends State<Meteo> {
                     ],
                   ),
                 ),
+              ),
+              new Row(
+                children: [
+                  new Padding(padding: EdgeInsets.fromLTRB(20, 30, 5, 30),
+                  child: InkWell(
+                    child: Container(
+                      height: 65,
+                      width: 65,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xff94e9ff),
+                            Color(0xff4da9ef),
+                          ]
+                        ),
+                      ),
+                      child: Icon(
+                          Icons.add,
+                          size: 52,
+                          color: Colors.white
+                      ),
+                    ),
+                    onTap: (){
+                      Navigator.of(context).pushNamed('/settings');
+                    },
+                  )),
+                  Expanded(child: Text('Abonnez vous pour plus de précision',
+                  style: TextStyle(color: Colors.blue.shade800, fontWeight: FontWeight.bold))),
+                ],
               )
             ],
           ),

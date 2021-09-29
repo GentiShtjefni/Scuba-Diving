@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../tools/ExpandedListAnimationWidget.dart';
 import '../tools/borderradius.dart';
 
@@ -80,7 +79,7 @@ class _DropDown1State extends State<DropDown1> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(2.0),
+                              padding: const EdgeInsets.only(left: 12.0),
                               child: GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -107,12 +106,10 @@ class _DropDown1State extends State<DropDown1> {
                       ExpandedSection(
                         expand: isStrechedDropDown,
                         height: double.infinity,
-                        child: SizedBox.expand(
+                        child: Container(
+                          color: Colors.white70,
                           child: Column(
-
-                            // controller: _scrollController,
                             children: [
-                              //controller: scrollController2,
                               ListTile(
                                 leading: Radio(
                                   value: 0,
@@ -120,11 +117,9 @@ class _DropDown1State extends State<DropDown1> {
                                   onChanged: handleGroupValue1,
                                 ),
                                 title: Text('periode pour plonger',
-                                style: TextStyle(
-                                  fontSize: 14
-                                )),
+                                    style: TextStyle(fontSize: 14)),
                                 trailing: DropdownButton(
-                                  dropdownColor: Colors.grey.shade300,
+                                  dropdownColor: Colors.blueGrey.shade50,
                                   value: ddValue1,
                                   icon: Icon(Icons.keyboard_arrow_down),
                                   elevation: 10,
@@ -151,14 +146,17 @@ class _DropDown1State extends State<DropDown1> {
                                       (String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
-                                      child: Text(value),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          // Center(child: CircleAvatar(backgroundColor: Colors.black,radius: 2,)),
+                                          Padding(padding: EdgeInsets.symmetric(horizontal: 5)),
+                                          Center(child: Text(value,textAlign: TextAlign.center,)),
+                                        ],
+                                      )
                                     );
                                   }).toList(),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                                child: Divider(color: Colors.greenAccent),
                               ),
                               ListTile(
                                 leading: Radio(
@@ -168,10 +166,10 @@ class _DropDown1State extends State<DropDown1> {
                                 ),
                                 title: Text('vie marine'),
                                 trailing: DropdownButton(
-                                  dropdownColor: Colors.grey.shade300,
+                                  dropdownColor: Colors.blueGrey.shade50,
+                                  elevation: 0,
                                   value: ddValue2,
                                   icon: Icon(Icons.keyboard_arrow_down),
-                                  elevation: 10,
                                   onChanged: (String newValue) {
                                     setState(() {
                                       ddValue2 = newValue;
@@ -179,21 +177,33 @@ class _DropDown1State extends State<DropDown1> {
                                   },
                                   items: [
                                     'select',
-                                    'janvier ',
-                                    'février',
-                                    'mars',
+                                    'requin',
+                                    'mammifere',
+                                    'reptile ',
+                                    'crustace',
+                                    'raie',
+                                    'limace ',
+                                    'cephalopode',
+                                    'corail',
+                                    'poisson pelagique',
+                                    'poisson de recif',
+                                    'poisson de fond',
                                   ].map<DropdownMenuItem<String>>(
                                       (String value) {
                                     return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(value),
-                                    );
+                                        value: value,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            SizedBox(
+                                              height: 60,
+                                              width: 110,//
+                                              child: Center(child: Text(value,textAlign: TextAlign.center,)),
+                                            ),
+                                          ],
+                                        ));
                                   }).toList(),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                                child: Divider(color: Colors.greenAccent),
                               ),
                               ListTile(
                                 leading: Radio(
@@ -203,7 +213,7 @@ class _DropDown1State extends State<DropDown1> {
                                 ),
                                 title: Text('type de plonge'),
                                 trailing: DropdownButton(
-                                  dropdownColor: Colors.grey.shade300,
+                                  dropdownColor: Colors.blueGrey.shade50,
                                   value: ddValue3,
                                   icon: Icon(Icons.keyboard_arrow_down),
                                   elevation: 10,
@@ -214,24 +224,31 @@ class _DropDown1State extends State<DropDown1> {
                                   },
                                   items: [
                                     'select',
-                                    'janvier ',
-                                    'février',
-                                    'mars',
-                                    'avril',
-                                    'mai',
-                                    'juin',
+                                    'nuit ',
+                                    'profondeur min 30 min',
+                                    'nitrox',
+                                    'en bateau',
+                                    'du bord',
+                                    'sous glace',
+                                    'eau douce',
+                                    'autres'
                                   ].map<DropdownMenuItem<String>>(
                                       (String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
-                                      child: Text(value),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          SizedBox(
+                                            height: 60,
+                                            width: 100,
+                                            child: Center(child: Text(value,textAlign: TextAlign.center,)),
+                                          ),
+                                        ],
+                                      )
                                     );
                                   }).toList(),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                                child: Divider(color: Colors.greenAccent),
                               ),
                               ListTile(
                                 leading: Radio(
@@ -241,7 +258,7 @@ class _DropDown1State extends State<DropDown1> {
                                 ),
                                 title: Text('Topographie'),
                                 trailing: DropdownButton(
-                                  dropdownColor: Colors.grey.shade300,
+                                  dropdownColor: Colors.blueGrey.shade50,
                                   value: ddValue4,
                                   icon: Icon(Icons.keyboard_arrow_down),
                                   elevation: 10,
@@ -252,13 +269,25 @@ class _DropDown1State extends State<DropDown1> {
                                   },
                                   items: [
                                     'select',
-                                    'janvier ',
-                                    'février',
+                                    'epave ',
+                                    'tombant',
+                                    'recif',
+                                    'sable/mangrove',
+                                    'grotte',
+                                    'volcanique',
+                                    'autres'
                                   ].map<DropdownMenuItem<String>>(
                                       (String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
-                                      child: Text(value),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Center(child: Center(child: Text(value,textAlign: TextAlign.center,))),
+                                        ],
+
+                                      )
                                     );
                                   }).toList(),
                                 ),

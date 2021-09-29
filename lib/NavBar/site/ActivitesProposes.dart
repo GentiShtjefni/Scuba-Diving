@@ -12,21 +12,20 @@ class ActivitesProposes extends StatefulWidget {
 }
 
 class _ActivitesProposesState extends State<ActivitesProposes> {
+  final informations = Informations();
   bool isStrechedActivities = false;
-  int groupValueActivities = 0;
+  int groupValueActivities ;
   void handleGroupValueActivities(int value) {
     setState(() {
       groupValueActivities = value;
       if (groupValueActivities == 0){
-        Informations(
-          activitesProposes: 'cours plongee',
-        );
+          informations.activitesProposes = 'cours plongee';
       }else if(groupValueActivities == 1){
-        Informations().activitesProposes = 'sortie bateau';
+        informations.activitesProposes = 'sortie bateau';
       }else if(groupValueActivities == 2){
-        Informations().activitesProposes = 'location equipment';
+        informations.activitesProposes = 'location equipment';
       }
-      print(Informations().activitesProposes);
+      print(informations.activitesProposes);
     });
   }
   @override
@@ -130,9 +129,7 @@ class _ActivitesProposesState extends State<ActivitesProposes> {
                                       horizontal: 18.0),
                                   child: Container(
                                     color: Colors.white70,
-                                    child: ListView(
-                                      padding: EdgeInsets.all(0),
-                                      shrinkWrap: true,
+                                    child: Column(
                                       children: [
                                         //controller: scrollController2,
                                         Row(
@@ -208,15 +205,6 @@ class _ActivitesProposesState extends State<ActivitesProposes> {
           )),
     );
   }
-  void activitesProposes(){
-    if (groupValueActivities == 0){
-      Informations().activitesProposes = 'cours plongee';
-    }else if(groupValueActivities == 1){
-      Informations().activitesProposes = 'sortie bateau';
-    }else if(groupValueActivities == 2){
-      Informations().activitesProposes = 'location equipment';
-    }else return null;
-}
 
 
 }

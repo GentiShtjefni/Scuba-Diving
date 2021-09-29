@@ -49,10 +49,15 @@ class _MainScreenState extends State<MainScreen> {
                 Color(0xff4da9ef),
               ])),
         ),
-        title: new Image.asset(
-          'images/logo.png',
-          width: 50.0,
-          height: 50.0,
+        title: InkWell(
+          onTap: (){
+            Navigator.of(context).pushNamed('/');
+          },
+          child: new Image.asset(
+            'images/logo.png',
+            width: 50.0,
+            height: 50.0,
+          ),
         ),
       ),
       body: Container(
@@ -76,21 +81,21 @@ class _MainScreenState extends State<MainScreen> {
         selectedItemColor: Colors.blue,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, size: 35,),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(
-                new AssetImage('images/ikon1.png'), size: 30.0),
+                new AssetImage('images/ikon1.png'), size: 35.0),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(new AssetImage('images/ikon2.png')),
+            icon: ImageIcon(new AssetImage('images/ikon2.png'), size: 35.0),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(
-                new AssetImage('images/communaute_icon.png')),
+                new AssetImage('images/communaute_icon.png'), size: 35.0),
             label: '',
           ),
         ],

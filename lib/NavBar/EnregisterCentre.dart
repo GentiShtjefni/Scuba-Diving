@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:project/NavBar/location.dart';
 import 'package:project/NavBar/site/ActivitesProposes.dart';
 import 'package:project/NavBar/site/Lieu.dart';
 import 'package:project/NavBar/site/NiveauAcceptes.dart';
 import 'package:project/NavBar/site/TypeIncontournable.dart';
 import 'package:project/NavBar/site/VieMarineDeSite.dart';
 import 'package:project/mainDirectory/AppBar.dart';
+import 'package:project/mainDirectory/homePage/location.api.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
+import 'package:project/mainDirectory/tools/database.dart';
 
 class EnregisterCentre extends StatefulWidget {
   const EnregisterCentre({Key key}) : super(key: key);
@@ -106,6 +109,7 @@ class _EnregisterCentreState extends State<EnregisterCentre> {
                 ),
               ),
               Lieu(),
+              LocationClass(),
               TypeIncontournable(),
               NiveauAcceptes(),
               ActivitesProposes(),
@@ -181,7 +185,28 @@ class _EnregisterCentreState extends State<EnregisterCentre> {
                       ),
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () async{
+                    try {
+                      dynamic result = await FirebaseService().registerPlace(
+                        lat: Place().lat,
+                        lon: Place().lon,
+                        name: _nomController.text,
+                        address: Place().address,
+
+                      );
+                      if(result == null){
+                        print ('something went wrong');
+                      }else return AlertDialog(
+                        title: Text('site was registered succesfully'),
+                        actions: [
+                          TextButton(onPressed: (){Navigator.pop(context);},
+                              child: Text('Ok'))
+                        ],
+                      );
+                    } on Exception catch (e) {
+                      print (e.toString());
+                    }
+                  },
                 ),
               ),
             ],

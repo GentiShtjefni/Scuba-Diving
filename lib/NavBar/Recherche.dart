@@ -274,7 +274,7 @@ class SearchResultsListView extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.only(top: 70),
       children: List.generate(
-        9,
+        11,
             (index) => ListTile(
           title: Text('$searchTerm search result'),
           subtitle: Text(index.toString()),

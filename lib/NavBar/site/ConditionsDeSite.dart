@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/NavBar/enregisterInformations.dart';
 import 'package:project/mainDirectory/tools/ExpandedConditions2.dart';
 import 'package:project/mainDirectory/tools/borderradius.dart';
 
@@ -11,6 +12,7 @@ class ConditionsDeSite extends StatefulWidget {
 }
 
 class _ConditionsDeSiteState extends State<ConditionsDeSite> {
+  final informations = Informations();
   bool isStrechedConditions = false;
   int groupValueConditions0;
   void handleGroupValue0(int value) {
@@ -151,6 +153,12 @@ class _ConditionsDeSiteState extends State<ConditionsDeSite> {
                                           onChanged: (String newValue) {
                                             setState(() {
                                               ddValueconditions1 = newValue;
+                                              if(ddValueconditions1 != 'select'){
+                                                informations.temperatureEau = ddValueconditions1;
+                                              }else {
+                                                informations.temperatureEau = null;
+                                              }
+                                              print(informations.temperatureEau);
                                             });
                                           },
                                           items: [
@@ -199,6 +207,12 @@ class _ConditionsDeSiteState extends State<ConditionsDeSite> {
                                             onChanged: (String newValue) {
                                               setState(() {
                                                 ddValueconditions2 = newValue;
+                                                if(ddValueconditions2 != 'select'){
+                                                  informations.courant = ddValueconditions2;
+                                                }else {
+                                                  informations.courant = null;
+                                                }
+                                                print(informations.courant);
                                               });
                                             },
                                             items: [
@@ -248,6 +262,12 @@ class _ConditionsDeSiteState extends State<ConditionsDeSite> {
                                             onChanged: (String newValue) {
                                               setState(() {
                                                 ddValueconditions3 = newValue;
+                                                if(ddValueconditions3 != 'select'){
+                                                  informations.visibilite = ddValueconditions3;
+                                                }else {
+                                                  informations.visibilite = null;
+                                                }
+                                                print(informations.visibilite);
                                               });
                                             },
                                             items: [
@@ -255,7 +275,7 @@ class _ConditionsDeSiteState extends State<ConditionsDeSite> {
                                               '0 à 10m',
                                               '10m à 20m',
                                               '20m et +',
-                                              'diculté autre'
+                                              'difficulté autre'
                                             ].map<DropdownMenuItem<String>>(
                                                     (String value) {
                                                   return DropdownMenuItem<String>(

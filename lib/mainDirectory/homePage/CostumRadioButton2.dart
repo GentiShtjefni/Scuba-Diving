@@ -22,7 +22,7 @@ class CostumRadioButtonState extends State {
                 icon: ImageIcon(
                   new AssetImage('images/ikon1.png'),
                   size: 70.0,
-                  color: _isSelectedDiving ? Colors.white : Color(0xff60af6c),
+                  color: _isSelectedDiving ? Colors.white : Color(0xff59a5da),
                 ),
                 label: Text(''),
                 onPressed: () {
@@ -35,7 +35,7 @@ class CostumRadioButtonState extends State {
                   elevation: 8,
                   shape: new CircleBorder(),
                   backgroundColor:
-                      _isSelectedDiving ? Color(0xff60af6c) : Colors.white,
+                      _isSelectedDiving ? Color(0xff59a5da) : Colors.white,
                   minimumSize: Size(80.0, 80.0),
                 ),
               ),
@@ -45,7 +45,7 @@ class CostumRadioButtonState extends State {
               icon: ImageIcon(
                 new AssetImage('images/ikon2.png'),
                 size: 70.0,
-                color: _isSelectedSecond ? Colors.white : Color(0xff60af6c),
+                color: _isSelectedSecond ? Colors.white : Color(0xff59a5da),
               ),
               label: Text(''),
               onPressed: () {
@@ -58,7 +58,7 @@ class CostumRadioButtonState extends State {
                 elevation: 8,
                 shape: new CircleBorder(),
                 backgroundColor:
-                    _isSelectedSecond ? Color(0xff60af6c) : Colors.white,
+                    _isSelectedSecond ? Color(0xff59a5da) : Colors.white,
                 minimumSize: Size(80.0, 80.0),
               ),
             ),

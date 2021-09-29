@@ -1,6 +1,7 @@
 class Informations {
   String nom;
   String lieu;
+  String typeInc;
   String type;
   String typDePlonge;
   String topographie;
@@ -28,6 +29,7 @@ class Informations {
 
   Informations(
       {this.type,
+        this.typeInc,
       this.nom,
       this.photo,
       this.activitesProposes,
